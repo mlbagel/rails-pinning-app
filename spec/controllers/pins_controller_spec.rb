@@ -81,4 +81,27 @@ RSpec.describe PinsController do
       end
 
     end
+
+    describe "GET pins/:id/edit" do
+      before(:each) do
+        @pin = {
+        
+          title: "Rails Wizard",
+          url: "http://railswizard.org",
+          slug: "rspec test",
+          text: "this is a test",
+          category_id: "rails"}
+      end
+
+      it 'responds with successfully' do
+        get("/pins/#{@pin.id}/edit")
+        expect(response.success?).to be(true)
+      end
+    end
+
+    #describe "Put Update" do
+    #end
+
+
+
 end
