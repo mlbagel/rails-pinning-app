@@ -82,26 +82,76 @@ RSpec.describe PinsController do
 
     end
 
-    describe "GET pins/:id/edit" do
+    describe "GET edit" do
       before(:each) do
-        @pin = {
-        
-          title: "Rails Wizard",
-          url: "http://railswizard.org",
-          slug: "rspec test",
-          text: "this is a test",
-          category_id: "rails"}
+        @pin = Pin.find(3)
       end
 
       it 'responds with successfully' do
-        get("/pins/#{@pin.id}/edit")
+        get :edit, id: @pin.id
         expect(response.success?).to be(true)
+      end
+
+      it 'renders the edit view' do
+        get :edit, id: @pin.id
+        expect(response).to render_template(:edit)
+      end
+
+      it 'assigns an instance variable called @pin to the Pin with the appropriate id' do
+        #this happens after we update our pin with new information and assign it back to the
+        #pin with the same id.
+        get :edit, id: @pin.id
+        expect(assigns(:pin)).to eq(@pin)
       end
     end
 
-    #describe "Put Update" do
-    #end
+    describe "POST Update" do
+      #with valid parameters
+      before(:each) do
+        @pin = Pin.find(4)
+        @pin_hash = {
+          title: "Ruby Quiz",
+          url: "http://rubyquiz.org",
+          slug: "ruby-quiz",
+          text: "A collection of quizzes on the Ruby programming language.",
+          category_id: "1"}
+      end
+      it 'responds with success' do
+        put :update, id: @pin.id, pin: @pin_hash
+        expect(response).to redirect_to("/pins/#{@pin.id}")
+      end
+      it 'upates a pin' do
+        put :update, id: @pin.id, pin: @pin_hash
+        expect(Pin.find(@pin.id).slug).to eq(@pin_hash[:slug])
+      end
+      it 'redirects to the show view' do
+        put :update, id: @pin.id, pin: @pin_hash
+        expect(response).to redirect_to(pin_url(assigns(:pin)))
+      end
+    end
 
+    describe "POST Update" do
+      #with invalid parameters
 
+      before(:each) do
+        @pin = Pin.find(4)
+        @pin_hash = {
+          title: "",
+          url: "http://rubyquiz.org",
+          slug: "ruby-quiz",
+          text: "A collection of quizzes on the Ruby programming language.",
+          category_id: "1",
+        category_iiid: "2"}
+        end
+        
+        it "assigns an @errors instance variable" do
+          put :update, id: @pin.id, pin: @pin_hash
+          expect(assigns(:errors).present?).to be(true)
+        end
+        it "renders the edit view" do
+          put :update, id: @pin.id, pin: @pin_hash
+          expect(response).to render_template(:edit)
+        end
 
+      end
 end
