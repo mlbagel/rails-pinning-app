@@ -1,61 +1,62 @@
-<form class="form-horizontal" role="form">
-  <div class="form-group">
-  <% if !@errors.nil? %>
-  <div class="error">
-    <label class="col-lg-offset-3 col-lg-6"><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
-    <ul>
-      <% @errors.full_messages.each do |msg| %>
-        <li><strong><%= "#{msg}" %></strong></li>
-      <% end %>
-    </ul>
+
+    <% if !@errors.nil? %>
+    <div class="alert alert-danger">
+      <label class="rails-bootstrap-forms-error-summary col-xlg-offset-3 col-xlg-6"><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
+        <ul>
+          <% @errors.full_messages.each do |msg| %>
+            <li><strong><%= "#{msg}" %></strong></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-  </div>
-</div>
 
-<div class="form_group">
-  <%= form_for @pin do |f| %>
 
-    <div class="form-group">
-    <label for="pin_title" class="col-lg-1">Title</label>
-    <div class="col-lg-11">
-      <%= f.text_field :title %>
-    </div>
-  </div>
+  <%= form_for(@pin, multipart: true, :html => {:class => 'col-xlg-8 form-horizontal'}) do |f| %>
 
-  <div class="form-group">
-    <label for="pin_category_id" class="col-lg-1">Category</label>
-    <div class="col-lg-11">
-      <%= f.collection_select(:category_id, Category.all, :id, :name) %>
-    </div>
-  </div>
+      <div class="form-group">
+        <label for="pin_title" class="control-label  col-xlg-2">Title</label>
+        <div class="col-xlg-8">
+          <%= f.text_field :title %>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <label for="pin_url" class="control-label col-lg-1">Web Address</label>
-    <div class="col-lg-11">
-        <%= f.url_field("http://#{:url}", options={}) %>
-    <%# link_to @pin.url, "http://#{@pin.url}" %>
-    </div>
-  </div>
+      <div class="form-group">
+        <label for="pin_category_id" class="control-label col-xlg-2">Category</label>
+        <div class="col-xlg-8">
+          <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <label for="pin_slug" class="col-lg-1">Web short text</label>
-    <div class="col-lg-11">
-      <%= f.text_field :slug %>
-    </div>
-  </div>
+      <div class="form-group">
+        <label for="pin_image" class="control-label col-xlg-2">Image</label>
+        <div class="col-xlg-8">
+          <%= f.file_field :image  %>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <label for="pin_text" class="col-lg-1">Description</label>
-    <div class="col-lg-11">
-      <%= f.text_field :text %>
-    </div>
-  </div>
+      <div class="form-group">
+        <label for="pin_url" class="control-label col-xlg-2">Web Address</label>
+        <div class="col-xlg-8">
+          <%= f.url_field(:url, options={}) %>
+        </div>
+      </div>
 
-  <div class="col-lg-offset-1">
-    <%= f.submit "     PIN IT        "%>
-  </div>
+      <div class="form-group">
+        <label for="pin_slug" class="control-label col-xlg-2">Web short text</label>
+          <div class="col-xlg-8">
+            <%= f.text_field :slug %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pin_text" class="control-label col-xlg-2">Description</label>
+          <div class=" col-xlg-8">
+            <%= f.text_field :text %>
+          </div>
+      </div>
+
+      <div class="col-xlg-12">
+        <%= f.submit "     PIN IT        " %>
+      </div>
+
   <% end %>
-</div>
-
-
-</form>

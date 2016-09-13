@@ -6,6 +6,9 @@
 </div>
 
 <div class="show-pin">
+  <% if @pin %>
+    <img src="<%= @pin.image.url(:medium) %>">
+  <% end %>
   <p class="header"><%= "#{@pin.text}" %></p>
 
   <hr/>

@@ -1,4 +1,9 @@
-<% if !@errors.nil? %>
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+
+
+
+    <% if !@errors.nil? %>
   <div class="error">
     <label class="col-lg-offset-3 col-lg-6"><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
     <ul>

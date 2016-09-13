@@ -26,6 +26,8 @@
             </div>
             <hr/>
             <p class="text"><%= "#{pin.text}" %></p>
+            <hr/>
+            <%= link_to "edit", edit_pin_path(id: pin.id) %>
           </div>
         </div>
       <% end %>
