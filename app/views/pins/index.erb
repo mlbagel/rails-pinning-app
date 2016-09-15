@@ -15,6 +15,8 @@
                 <%= image_tag('rails-logo-thumbnail.png')  %>
                 <% elsif pin.category.name == "ruby" %>
                 <%= image_tag('ruby-logo-thumbnail.png') %>
+                <% else pin.category.name == "unknown" %>
+                <%= image_tag('@pin.image.url(:thumb)') %>
                 <% end %>
              </div>
                 <div class="col-xs-9">
