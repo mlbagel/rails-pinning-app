@@ -29,14 +29,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def authenticate
-    user = User.authenticate(params[:email],params[:password])
-    if user.nil?
+    @user = User.authenticate(params[:email],params[:password])
+    if @user.nil?
       @errors = "Email or Password are Invalid"
       render :login
     else
-    redirect_to "/users/#{user[:id]}"
+    redirect_to "/users/#{@user[:id]}"
     end
   end
+  
   # POST /users
   # POST /users.json
   def create

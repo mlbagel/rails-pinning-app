@@ -29,7 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Puma as the web server
 gem 'puma'
 
-gem 'rails_12factor'
+group  :production do
+  gem 'rails_12factor'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -52,5 +54,6 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+gem 'bcrypt', '~> 3.1.7'
 gem 'rspec'
 gem 'rspec-rails'
