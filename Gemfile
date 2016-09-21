@@ -36,24 +36,30 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Access an IRB console on exception pages or by using <%= console %> in views
-gem 'web-console', '~> 2.0', group: :development
-
 #add paperclip file for images
 gem 'paperclip', '~> 4.3.6'
 gem 'aws-sdk', '~> 1.6'
 
-group :development, :test do
+gem 'bcrypt', '~> 3.1.7'
+
+
+group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'database_cleaner'
 end
 
-gem 'bcrypt', '~> 3.1.7'
-gem 'rspec'
-gem 'rspec-rails'
+group :test do
+
+  gem 'shoulda-matchers'
+  gem 'spring'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end

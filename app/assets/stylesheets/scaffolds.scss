@@ -11,6 +11,7 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
   width: 150px;
+
 }
 
 pre {
@@ -45,6 +46,7 @@ div {
 .field_with_errors {
   padding: 2px;
   background-color: #8B0000;
+  color: #fff;
   display: table;
 }
 
@@ -55,6 +57,8 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #8B0000;
+
+
 
   h2 {
     text-align: left;
@@ -70,5 +74,6 @@ div {
   ul li {
     font-size: 12px;
     list-style: square;
+    color: #fff;
   }
 }

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
 
   describe "User authenticate method" do
 
     before(:all) do
-      @user = User.create(email: "coder@skillcrush", password: "password")
+      @user = User.create(first_name: "cody", last_name: "skillcode", email: "coder@skillcrush", password: "password")
     end
 
     after(:all) do
@@ -15,10 +15,16 @@ RSpec.describe User, type: :model do
       end
     end
 
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password) }
+
     it 'authenticates and returns a user when valid email and password passed in' do
-      User.authenticate(@user.email,@user.password)
-      expect(@user).to eql(@user)
+      authenticate_user = User.authenticate(@user.email,@user.password)
+      expect(authenticate_user).to eql(@user)
     end
   end
+
 
 end

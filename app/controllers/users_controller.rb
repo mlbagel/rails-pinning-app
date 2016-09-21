@@ -34,10 +34,11 @@ class UsersController < ApplicationController
       @errors = "Email or Password are Invalid"
       render :login
     else
-    redirect_to "/users/#{@user[:id]}"
+    #redirect_to "/users/#{@user[:id]}"
+    redirect_to user_path(@user)
     end
   end
-  
+
   # POST /users
   # POST /users.json
   def create
