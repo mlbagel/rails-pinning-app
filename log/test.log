@@ -7296,3 +7296,493 @@ Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["email", "coder22@skillcrush.com"], ["first_name", "Skillcrush"], ["last_name", "Coder"], ["password_digest", "$2a$04$sB0ogKISF2m68Xtf7ZLeIOYCDV0SKPpFind0D67CFS8Hf.rYROdde"], ["created_at", "2016-09-21 15:06:45.727728"], ["updated_at", "2016-09-21 15:06:45.727728"]]
   [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
   Rendered users/show.html.erb (0.8ms)
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "pins" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (13.5ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.0ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'coder-pinterest_test'[0m
+  [1m[35m (21.9ms)[0m  TRUNCATE TABLE "public"."pins", "public"."categories", "public"."users" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "pins" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-tutorial' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pins" ("title", "url", "text", "slug", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Rails Tutorial"], ["url", "https://www.railstutorial.org/"], ["text", "The trusted standard in self-directed introductions to Ruby on Rails. A complete treatment of all the essentials\n    required in most production Rails applications."], ["slug", "rails-tutorial"], ["category_id", 0]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-for-zombies' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "url", "text", "slug", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Rails for Zombies"], ["url", "http://railsforzombies.org"], ["text", "A fun, gamified way to hone your Rails skills! Come on...who doesn't like fighting zombies?!"], ["slug", "rails-for-zombies"], ["category_id", 0]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'try-ruby' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "url", "text", "slug", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Try Ruby"], ["url", "http://tryruby.org/"], ["text", "An interactive, in-browser tutorial for the Ruby programming language. A thorough walkthrough of\n    Ruby's nuances, geared toward beginners."], ["slug", "try-ruby"], ["category_id", 0]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-quiz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "url", "text", "slug", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Ruby Quiz"], ["url", "http://rubyquiz.org"], ["text", "A collection of quizzes on the Ruby programming language."], ["slug", "ruby-quiz"], ["category_id", 0]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ga-ror-for-developers' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "url", "text", "slug", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Ruby on Rails for Developers"], ["url", "https://github.com/generalassembly/ga-ruby-on-rails-for-devs"], ["text", "Somewhat advanced curriculum, but the exercises are also good for anyone who is motivated and\n    self-guided with experience."], ["slug", "ga-ror-for-developers"], ["category_id", 0]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-monk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "url", "text", "slug", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Ruby Monk"], ["url", "http://rubymonk.com"], ["text", "The Ruby Primer is a free interactive book that helps you learn Ruby. Discover Ruby idioms, learn\n    lessons and solve problems, all in your browser!"], ["slug", "ruby-monk"], ["category_id", 0]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Processing by PinsController#index as HTML
+  Rendered pins/index.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+Processing by PinsController#index as HTML
+  Rendered pins/index.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+Processing by PinsController#new as HTML
+  Rendered pins/new.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+Processing by PinsController#new as HTML
+  Rendered pins/new.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+Processing by PinsController#new as HTML
+  Rendered pins/new.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+Processing by PinsController#create as HTML
+  Parameters: {"pin"=>{"title"=>"Rails Wizard", "url"=>"http://railswizard.org", "slug"=>"rails-wizard", "text"=>"A fun and helpful Rails Resource", "category_id"=>"rails"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-wizard' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pins" ("title", "url", "slug", "text", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Rails Wizard"], ["url", "http://railswizard.org"], ["slug", "rails-wizard"], ["text", "A fun and helpful Rails Resource"], ["category_id", 0]]
+  [1m[36m (6.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mPin Exists (0.7ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'rails-wizard' AND "pins"."id" != 7) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'rails-wizard' AND "pins"."id" != 7) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/pins/7
+Completed 302 Found in 17ms (ActiveRecord: 8.7ms)
+  [1m[35mPin Load (0.2ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1  [["slug", "rails-wizard"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "pins" WHERE "pins"."id" = $1  [["id", 7]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+Processing by PinsController#create as HTML
+  Parameters: {"pin"=>{"title"=>"Rails Wizard", "url"=>"http://railswizard.org", "slug"=>"rails-wizard", "text"=>"A fun and helpful Rails Resource", "category_id"=>"rails"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-wizard' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "url", "slug", "text", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Rails Wizard"], ["url", "http://railswizard.org"], ["slug", "rails-wizard"], ["text", "A fun and helpful Rails Resource"], ["category_id", 0]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPin Exists (0.6ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'rails-wizard' AND "pins"."id" != 8) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.6ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'rails-wizard' AND "pins"."id" != 8) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/pins/8
+Completed 302 Found in 15ms (ActiveRecord: 7.7ms)
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1  [["slug", "rails-wizard"]]
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1[0m  [["slug", "rails-wizard"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "pins" WHERE "pins"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Processing by PinsController#create as HTML
+  Parameters: {"pin"=>{"title"=>"Rails Wizard", "url"=>"http://railswizard.org", "slug"=>"rails-wizard", "text"=>"A fun and helpful Rails Resource", "category_id"=>"rails"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-wizard' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pins" ("title", "url", "slug", "text", "category_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails Wizard"], ["url", "http://railswizard.org"], ["slug", "rails-wizard"], ["text", "A fun and helpful Rails Resource"], ["category_id", 0]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'rails-wizard' AND "pins"."id" != 9) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'rails-wizard' AND "pins"."id" != 9) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://test.host/pins/9
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1[0m  [["slug", "rails-wizard"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "pins" WHERE "pins"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Processing by PinsController#create as HTML
+  Parameters: {"pin"=>{"url"=>"http://railswizard.org", "slug"=>"rails-wizard", "text"=>"A fun and helpful Rails Resource", "category_id"=>"rails"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-wizard' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-wizard' LIMIT 1
+  Rendered pins/new.erb within layouts/application (0.0ms)
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1[0m  [["slug", "rails-wizard"]]
+Processing by PinsController#create as HTML
+  Parameters: {"pin"=>{"url"=>"http://railswizard.org", "slug"=>"rails-wizard", "text"=>"A fun and helpful Rails Resource", "category_id"=>"rails"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-wizard' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-wizard' LIMIT 1[0m
+  Rendered pins/new.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1  [["slug", "rails-wizard"]]
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPin Load (0.4ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered pins/edit.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered pins/edit.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered pins/edit.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+  [1m[36mPin Load (0.2ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Processing by PinsController#update as HTML
+  Parameters: {"pin"=>{"title"=>"Ruby Quiz", "url"=>"http://rubyquiz.org", "slug"=>"ruby-quiz", "text"=>"A collection of quizzes on the Ruby programming language.", "category_id"=>"1"}, "id"=>"4"}
+  [1m[35mPin Load (0.6ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.4ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'ruby-quiz' AND "pins"."id" != 4) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "pins" SET "category_id" = $1 WHERE "pins"."id" = $2[0m  [["category_id", 1], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://test.host/pins/4
+Completed 302 Found in 16ms (ActiveRecord: 1.7ms)
+  [1m[36mPin Load (0.2ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Processing by PinsController#update as HTML
+  Parameters: {"pin"=>{"title"=>"Ruby Quiz", "url"=>"http://rubyquiz.org", "slug"=>"ruby-quiz", "text"=>"A collection of quizzes on the Ruby programming language.", "category_id"=>"1"}, "id"=>"4"}
+  [1m[35mPin Load (0.2ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'ruby-quiz' AND "pins"."id" != 4) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/pins/4
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mPin Load (0.2ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Processing by PinsController#update as HTML
+  Parameters: {"pin"=>{"title"=>"Ruby Quiz", "url"=>"http://rubyquiz.org", "slug"=>"ruby-quiz", "text"=>"A collection of quizzes on the Ruby programming language.", "category_id"=>"1"}, "id"=>"4"}
+  [1m[35mPin Load (0.2ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'ruby-quiz' AND "pins"."id" != 4) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/pins/4
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[35mPin Load (0.2ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 4]]
+Processing by PinsController#update as HTML
+  Parameters: {"pin"=>{"title"=>"", "url"=>"http://rubyquiz.org", "slug"=>"ruby-quiz", "text"=>"A collection of quizzes on the Ruby programming language.", "category_id"=>"1", "category_iiid"=>"2"}, "id"=>"4"}
+  [1m[36mPin Load (0.5ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Unpermitted parameter: category_iiid
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'ruby-quiz' AND "pins"."id" != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered pins/edit.erb within layouts/application (0.0ms)
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+  [1m[36mPin Load (0.2ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Processing by PinsController#update as HTML
+  Parameters: {"pin"=>{"title"=>"", "url"=>"http://rubyquiz.org", "slug"=>"ruby-quiz", "text"=>"A collection of quizzes on the Ruby programming language.", "category_id"=>"1", "category_iiid"=>"2"}, "id"=>"4"}
+  [1m[35mPin Load (0.2ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 4]]
+Unpermitted parameter: category_iiid
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'ruby-quiz' AND "pins"."id" != 4) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered pins/edit.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder1@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder1@skillcrush.com"], ["password_digest", "$2a$04$mEk4R2TpANVMYKp3qDceWOqOM0FJCrZOR4Be2IBZ4J1QE7Zr3DmbO"], ["created_at", "2016-09-22 12:17:21.890762"], ["updated_at", "2016-09-22 12:17:21.890762"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder3@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder3@skillcrush.com"], ["password_digest", "$2a$04$SUATcfhvSR0DT9Qwh7XtWOFhYYxZnJCkhMuv.nehbkBFNv8nHXEzy"], ["created_at", "2016-09-22 12:17:21.919145"], ["updated_at", "2016-09-22 12:17:21.919145"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered users/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>"Coder", "email"=>"coder4@skillcrush.com", "password"=>"[FILTERED]"}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder4@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder4@skillcrush.com"], ["password_digest", "$2a$04$9fERNtyme/TNiKEv6qQYXuFVggOAG8IeAskBw7PFK1qQXSZAenmJm"], ["created_at", "2016-09-22 12:17:21.944593"], ["updated_at", "2016-09-22 12:17:21.944593"]]
+  [1m[35m (6.4ms)[0m  COMMIT
+Redirected to http://test.host/users/3
+Completed 302 Found in 13ms (ActiveRecord: 7.2ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>"Coder", "email"=>"coder5@skillcrush.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder5@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder5@skillcrush.com"], ["password_digest", "$2a$04$GIfIu81JsyeoK.IuZm60HOOzjbm1wJgitfB3CvwVNIgO.AzbllqmO"], ["created_at", "2016-09-22 12:17:21.963811"], ["updated_at", "2016-09-22 12:17:21.963811"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/users/4
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>"Coder", "email"=>"coder6@skillcrush.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder6@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder6@skillcrush.com"], ["password_digest", "$2a$04$zzS1wXc.KJsqHxGe3kKm2OCvFl6JE9VST20xRlbLYty.R31v6kzTG"], ["created_at", "2016-09-22 12:17:21.974450"], ["updated_at", "2016-09-22 12:17:21.974450"]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/users/5
+Completed 302 Found in 11ms (ActiveRecord: 7.1ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>nil, "password"=>"[FILTERED]", "email"=>""}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = '' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered users/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>nil, "password"=>"[FILTERED]", "email"=>""}}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = '' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered users/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder9@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder9@skillcrush.com"], ["password_digest", "$2a$04$PILflIIfpq/VVu0UEfjo5ORQ5Vh4D.lE4VtJBKtkHj8K8xuGBMAfG"], ["created_at", "2016-09-22 12:17:22.014786"], ["updated_at", "2016-09-22 12:17:22.014786"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder9@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "coder9@skillcrush.com"]]
+Redirected to http://test.host/users/6
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>"Coder", "email"=>"coder9@skillcrush.com", "password"=>"[FILTERED]"}, "id"=>"6"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'coder9@skillcrush.com' AND "users"."id" != 6) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["password_digest", "$2a$04$rZ1S7tSNxFUSeQLmLwdvcuaj7hqJwU2WLE57yJ.hnmr4vrSugnoUq"], ["updated_at", "2016-09-22 12:17:22.025147"], ["id", 6]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://test.host/users/6
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder10@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder10@skillcrush.com"], ["password_digest", "$2a$04$wGCmHEiiu1qP9kI5wj3mWORId0l8VFGBrboh32jxmuBp/IlO1dnBK"], ["created_at", "2016-09-22 12:17:22.034029"], ["updated_at", "2016-09-22 12:17:22.034029"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder10@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "coder10@skillcrush.com"]]
+Redirected to http://test.host/users/7
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>"Coder", "email"=>"coder10@skillcrush.com", "password"=>"[FILTERED]"}, "id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'coder10@skillcrush.com' AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["password_digest", "$2a$04$WCDvPjR7EQsMH1B93zJXUunfYF9JG/2JLpzKGqP2.MQGiZmDs8IDq"], ["updated_at", "2016-09-22 12:17:22.043561"], ["id", 7]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/users/7
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder11@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder11@skillcrush.com"], ["password_digest", "$2a$04$qdLxkvrQ8yUTpuafMMyP9.tBy0Jeju8UFz0tpU9Schtdr.1CqSs96"], ["created_at", "2016-09-22 12:17:22.052806"], ["updated_at", "2016-09-22 12:17:22.052806"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder11@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "coder11@skillcrush.com"]]
+Redirected to http://test.host/users/8
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>"Coder", "email"=>"coder11@skillcrush.com", "password"=>"[FILTERED]"}, "id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'coder11@skillcrush.com' AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["password_digest", "$2a$04$FGehlqdMItVE2aEIFSDVleD1wwNwieaKL.4N4lo5Ur57Du/0ZZK36"], ["updated_at", "2016-09-22 12:17:22.061643"], ["id", 8]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/users/8
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder12@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder12@skillcrush.com"], ["password_digest", "$2a$04$v05oLLnK0cHHypUGjPlvP.S78lGffnYpWW/CaoK/zYIOAVUx8EHUW"], ["created_at", "2016-09-22 12:17:22.069924"], ["updated_at", "2016-09-22 12:17:22.069924"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder12@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "coder12@skillcrush.com"]]
+Redirected to http://test.host/users/9
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>nil, "password"=>"[FILTERED]", "email"=>""}, "id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = '' AND "users"."id" != 9) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered users/edit.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder13@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder13@skillcrush.com"], ["password_digest", "$2a$04$xHX.DRirKT53PGjGB.1Bhumg0gIvNVqX4VvHJq5akYesWCqJM8lVi"], ["created_at", "2016-09-22 12:17:22.087555"], ["updated_at", "2016-09-22 12:17:22.087555"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder13@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "coder13@skillcrush.com"]]
+Redirected to http://test.host/users/10
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"first_name"=>"Skillcrush", "last_name"=>nil, "password"=>"[FILTERED]", "email"=>""}, "id"=>"10"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = '' AND "users"."id" != 10) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered users/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder14@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder14@skillcrush.com"], ["password_digest", "$2a$04$y7PHcsujMv.eKF9V9PUWaeWYt8CsGqq1Z.juBluVJEuGTBxzBGs2i"], ["created_at", "2016-09-22 12:17:22.104238"], ["updated_at", "2016-09-22 12:17:22.104238"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder14@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "coder14@skillcrush.com"]]
+Redirected to http://test.host/users/11
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 11]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 2ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder15@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder15@skillcrush.com"], ["password_digest", "$2a$04$fgEKamOvAPllZBmVIWNsbuaIqK/F4FYWInajL/mjUY/YWlKHC5i3e"], ["created_at", "2016-09-22 12:17:22.120112"], ["updated_at", "2016-09-22 12:17:22.120112"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder15@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "coder15@skillcrush.com"]]
+Redirected to http://test.host/users/12
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 12]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 2ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder17@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder17@skillcrush.com"], ["password_digest", "$2a$04$SHmaHVEz/T5iDSnyUk3vhOb1xvO.W9zoAqRsSwhvvHwwVcVSYHLtG"], ["created_at", "2016-09-22 12:17:22.141784"], ["updated_at", "2016-09-22 12:17:22.141784"]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder17@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "coder17@skillcrush.com"]]
+Redirected to http://test.host/users/13
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder18@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder18@skillcrush.com"], ["password_digest", "$2a$04$xsedLKCoTHF0els.SohRrOBKdtjD1XR/KaAsB5Zo/F/NCXqXw1GG."], ["created_at", "2016-09-22 12:17:22.161792"], ["updated_at", "2016-09-22 12:17:22.161792"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Processing by UsersController#authenticate as HTML
+  Parameters: {"email"=>"coder18@skillcrush.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "coder18@skillcrush.com"]]
+Redirected to http://test.host/users/14
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder19@skillcrush.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder19@skillcrush.com"], ["password_digest", "$2a$04$pkfkktKnB2AyQCk.44mTnewIVRnyvRTKlWibMnE8SGRTDoR.tyWFi"], ["created_at", "2016-09-22 12:17:22.174242"], ["updated_at", "2016-09-22 12:17:22.174242"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Processing by UsersController#authenticate as HTML
+  Parameters: {"first_name"=>"Skillcrush", "last_name"=>nil, "password"=>"[FILTERED]", "email"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", ""]]
+  Rendered users/login.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder20@skillcrush.com' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Skillcrush"], ["last_name", "Coder"], ["email", "coder20@skillcrush.com"], ["password_digest", "$2a$04$Ipn2XQc1ge/DTZUCW5cnjeNsbMTOqF6jYs0MWXuOIsW87rvCpbGVu"], ["created_at", "2016-09-22 12:17:22.184352"], ["updated_at", "2016-09-22 12:17:22.184352"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Processing by UsersController#authenticate as HTML
+  Parameters: {"first_name"=>"Skillcrush", "last_name"=>nil, "password"=>"[FILTERED]", "email"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", ""]]
+  Rendered users/login.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder@skillcrush' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "cody"], ["last_name", "skillcode"], ["email", "coder@skillcrush"], ["password_digest", "$2a$04$TNBWYlQ9GvlAWVX0oZTbcOVcF9qxgvWb7O.jqkYiOF4HIQzw5IXha"], ["created_at", "2016-09-22 12:17:22.192912"], ["updated_at", "2016-09-22 12:17:22.192912"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "coder@skillcrush"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 17]]
+  [1m[36m (5.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mPin Load (0.4ms)[0m  SELECT  "pins".* FROM "pins"  ORDER BY "pins"."id" ASC LIMIT 1
+Started GET "/pins/name-rails-tutorial" for 127.0.0.1 at 2016-09-22 08:17:22 -0400
+Processing by PinsController#show_by_name as HTML
+  Parameters: {"slug"=>"rails-tutorial"}
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1[0m  [["slug", "rails-tutorial"]]
+  Rendered pins/show.erb within layouts/application (2.0ms)
+Completed 200 OK in 170ms (Views: 159.8ms | ActiveRecord: 0.3ms)
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins"  ORDER BY "pins"."id" ASC LIMIT 1
+Started GET "/pins/name-rails-tutorial" for 127.0.0.1 at 2016-09-22 08:17:22 -0400
+Processing by PinsController#show_by_name as HTML
+  Parameters: {"slug"=>"rails-tutorial"}
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1[0m  [["slug", "rails-tutorial"]]
+  Rendered pins/show.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+  [1m[35mPin Load (0.4ms)[0m  SELECT  "pins".* FROM "pins"  ORDER BY "pins"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder21@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "coder21@skillcrush.com"], ["first_name", "Skillcrush"], ["last_name", "Coder"], ["password_digest", "$2a$04$.2s/z59rSP9lSflOA67YiuamI/rHAfGWO4h4rhot/Or5M43NdqKtC"], ["created_at", "2016-09-22 12:17:22.431690"], ["updated_at", "2016-09-22 12:17:22.431690"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered users/_form.html.erb (13.8ms)
+  Rendered users/edit.html.erb (41.5ms)
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb (2.5ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'coder22@skillcrush.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "coder22@skillcrush.com"], ["first_name", "Skillcrush"], ["last_name", "Coder"], ["password_digest", "$2a$04$4CJm9T3MXKVW2CvoTGZAPehfj3YTOkbKVnoUALYsC1IV0W26jcVc."], ["created_at", "2016-09-22 12:17:22.515494"], ["updated_at", "2016-09-22 12:17:22.515494"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered users/show.html.erb (0.8ms)

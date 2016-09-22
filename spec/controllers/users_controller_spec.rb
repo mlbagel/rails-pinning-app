@@ -44,7 +44,9 @@ end
 let(:invalid_attributes) {
 {
   first_name: @user.first_name,
-  password: @user.password
+  last_name: nil,
+  password: @user.password,
+  email: ""
 }
 }
 
@@ -155,7 +157,7 @@ let(:invalid_attributes) {
 
       it "re-renders the 'edit' template" do
         user = User.create! valid_attributes
-      #  post :authenticate, {email: @user.email, password: @user.password}
+        post :authenticate, {email: @user.email, password: @user.password}
         put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end

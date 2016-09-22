@@ -42,6 +42,7 @@ gem 'aws-sdk', '~> 1.6'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'shoulda-matchers'
 
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,7 +57,7 @@ end
 
 group :test do
 
-  gem 'shoulda-matchers'
+
   gem 'spring'
   gem 'database_cleaner'
   gem 'rspec'
