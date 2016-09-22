@@ -68,6 +68,7 @@ let(:invalid_attributes) {
   describe "GET #show" do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: user.email, password: user.password}
       get :show, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
     end
@@ -83,6 +84,7 @@ let(:invalid_attributes) {
   describe "GET #edit" do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: user.email, password: user.password}
       get :edit, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
     end
@@ -126,7 +128,7 @@ let(:invalid_attributes) {
 
       it "updates the requested user" do
         user = User.create! valid_attributes
-        post  :authenticate, {email: @user.email, password: @user.password}
+        post  :authenticate, {email: user.email, password: user.password}
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
         user.reload
         expect(assigns(:user)).to eq(user)

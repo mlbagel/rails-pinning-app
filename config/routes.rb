@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   post 'login' => "users#authenticate"
 
+  delete 'logout/:id' => "users#logout", as: :logout
+
 
 
 
