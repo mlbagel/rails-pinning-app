@@ -72,6 +72,12 @@ let(:invalid_attributes) {
       get :show, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
     end
+
+    it "redirects to login if user is not signed in" do
+      user = User.create! valid_attributes
+      get :show, {:id => user.to_param}, valid_session
+      expect(response).to redirect_to(:login)
+    end
   end
 
   describe "GET #new" do
@@ -87,6 +93,12 @@ let(:invalid_attributes) {
       post :authenticate, {email: user.email, password: user.password}
       get :edit, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
+    end
+
+    it "redirects to login if user is not signed in" do
+      user = User.create! valid_attributes
+      get :edit, {:id => user.to_param}, valid_session
+      expect(response).to redirect_to(:login)
     end
   end
 
@@ -147,6 +159,12 @@ let(:invalid_attributes) {
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
         expect(response).to redirect_to(user)
       end
+
+      it "redirects to login if user is not signed in" do
+        user = User.create! valid_attributes
+        put :update, {:id => user.to_param}, valid_session
+        expect(response).to redirect_to(:login)
+      end
     end
 
     context "with invalid params" do
@@ -180,6 +198,12 @@ let(:invalid_attributes) {
       post :authenticate, {email: @user.email, password: @user.password}
       delete :destroy, {:id => user.to_param}, valid_session
       expect(response).to redirect_to(users_url)
+    end
+
+    it "redirects to login if user is not signed in" do
+      user = User.create! valid_attributes
+      delete :destroy, {:id => user.to_param}, valid_session
+      expect(response).to redirect_to(:login)
     end
   end
 
