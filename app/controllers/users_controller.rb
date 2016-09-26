@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:show, :edit, :update, :destroy, :index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -88,11 +88,7 @@ class UsersController < ApplicationController
 
 
   private
-   def require_login
-     if current_user.nil?
-     redirect_to login_path
-    end
-   end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

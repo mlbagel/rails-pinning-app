@@ -1,6 +1,17 @@
 require 'spec_helper'
 RSpec.describe PinsController do
 
+  before(:each) do
+  @user = FactoryGirl.create(:user)
+  login(@user)
+end
+
+after(:each) do
+  if !@user.destroyed?
+    @user.destroy
+  end
+end
+
   describe "GET index" do
     it 'renders the index template' do
       get :index
@@ -9,7 +20,13 @@ RSpec.describe PinsController do
 
     it 'populates @pins with all pins' do
       get :index
-      expect(assigns[:pins]).to eq(Pin.all)
+      expect(assigns[:pins]).to eq(Pin.where(user_id: @user.id))
+    end
+
+    it 'redirects to Login when Logged out' do
+      logout(@user)
+      get :index
+      expect(response).to redirect_to(:login)
     end
   end
 
@@ -143,7 +160,7 @@ RSpec.describe PinsController do
           category_id: "1",
         category_iiid: "2"}
         end
-        
+
         it "assigns an @errors instance variable" do
           put :update, id: @pin.id, pin: @pin_hash
           expect(assigns(:errors).present?).to be(true)
