@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   describe "User authenticate method" do
 
     before(:all) do
-      @user = User.create(first_name: "cody", last_name: "skillcode", email: "coder@skillcrush", password: "password")
+      @user = User.create!(first_name: "cody", last_name: "skillcode", email: "coder@skillcrush", password: "password")
     end
 
     after(:all) do

@@ -9,7 +9,7 @@ FactoryGirl.define do
     url "http://rails-cheat.com"
     text "A great tool for beginning developers"
     slug
-    category Category.find_by_name("rails")
+    category_id Category.find_by_name("rails")
   end
 
   factory :user do
@@ -22,5 +22,5 @@ FactoryGirl.define do
       create_list(:pin, 3)
     end
   end
-  
+
 end

@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="container">
-    <% if !current_user.nil? %>
+    <% if current_user && current_user.valid? %>
       <div class="user pull-right">
         <h3>
           <%= "Hi, #{current_user.first_name}!" %> |

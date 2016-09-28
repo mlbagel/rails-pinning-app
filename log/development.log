@@ -6892,3 +6892,838 @@ FOREIGN KEY ("user_id")
   [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160916133231')[0m
 DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Pin> at /Users/Michelle/Desktop/ruby/rails-pinning-app/app/models/pin.rb:10)
   [1m[36mPin Load (1.0ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 1]]
+
+
+Started GET "/signup" for ::1 at 2016-09-26 14:31:25 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (16.1ms)
+  Rendered users/new.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 339ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:       <div class="user pull-right">
+    14:         <h3>
+    15:           <%= "Hi, #{current_user.first_name}!" %> |
+    16:           <%= link_to "Logout", logout_path(current_user), method: :delete %>
+    17:         </h3>
+    18:       </div>
+    19:     <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2825025213925603101_70155916757020'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.9ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.7ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (112.3ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 14:33:08 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for ::1 at 2016-09-26 14:33:23 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pifZyMsB2pagsqnCaiHeXnou2oL+7sMN2d7NtfPKqvP4lI7N+YNirW0v1eP6Km51yITwuSsUV47aL/aspVbLCQ==", "email"=>"glass@gmail.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "glass@gmail.com"]]
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 74ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/4" for ::1 at 2016-09-26 14:33:23 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/logout/4" for ::1 at 2016-09-26 14:33:27 -0400
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"7mvKTuBY1xBzePWbJJT9B51M9BdLNTgjkSupLOZkP2ew2J1L0tpvK77libq0n00sL+beLJ7PrKCS2pI1sPhenQ==", "id"=>"4"}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 14:33:27 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2016-09-26 14:33:40 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KhEgkSj2bAOtPZDKgtrNN1B510LF6lIKvfZg9OQ2qrx0oneUGnTUOGCg7OsS0X0c4tP9eRAQxom+B1vtsqrLRg==", "email"=>"glass@gmail.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "glass@gmail.com"]]
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 68ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for ::1 at 2016-09-26 14:33:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/4/edit" for ::1 at 2016-09-26 14:33:44 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered users/_form.html.erb (3.3ms)
+  Rendered users/edit.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 35ms (Views: 30.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 14:33:48 -0400
+Processing by PinsController#index as HTML
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Pin> at /Users/Michelle/Desktop/ruby/rails-pinning-app/app/models/pin.rb:10)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (25.4ms)
+Completed 200 OK in 86ms (Views: 52.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/pins/17/edit" for ::1 at 2016-09-26 14:34:08 -0400
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.4ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered pins/_form.erb (10.5ms)
+  Rendered pins/edit.erb within layouts/application (12.2ms)
+Completed 200 OK in 59ms (Views: 49.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 14:34:32 -0400
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (5.0ms)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-26 14:34:32 -0400
+
+
+Started DELETE "/logout/4" for ::1 at 2016-09-26 14:34:34 -0400
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"kHX18/QpULS5UGuUrvvurl9zh4oZIdueU9RFaETMTL/OxqL2xqvoj3TNF7U+8F6F7dmtsczbTx1QJX5xElAtRQ==", "id"=>"4"}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 14:34:34 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 14:34:37 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-26 14:34:37 -0400
+
+
+Started GET "/signup" for ::1 at 2016-09-26 14:34:47 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:       <div class="user pull-right">
+    14:         <h3>
+    15:           <%= "Hi, #{current_user.first_name}!" %> |
+    16:           <%= link_to "Logout", logout_path(current_user), method: :delete %>
+    17:         </h3>
+    18:       </div>
+    19:     <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2825025213925603101_70155916757020'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.5ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (94.3ms)
+
+
+Started GET "/signup" for ::1 at 2016-09-26 16:58:30 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.0ms)
+  Rendered users/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 312ms (Views: 284.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-26 16:58:31 -0400
+
+
+Started GET "/login" for ::1 at 2016-09-26 17:21:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 284ms
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     9: </head>
+    10: <body>
+    11:   <div class="container">
+    12:     <% if !current_user.id.nil? %>
+    13:       <div class="user pull-right">
+    14:         <h3>
+    15:           <%= "Hi, #{current_user.first_name}!" %> |
+  app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2353688125691451678_70179101199200'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.2ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (119.6ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 17:21:05 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     9: </head>
+    10: <body>
+    11:   <div class="container">
+    12:     <% if !current_user.id.nil? %>
+    13:       <div class="user pull-right">
+    14:         <h3>
+    15:           <%= "Hi, #{current_user.first_name}!" %> |
+  app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2353688125691451678_70179101199200'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (48.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.7ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (96.0ms)
+
+
+Started GET "/users/login" for ::1 at 2016-09-26 17:22:19 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"login"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 17:22:19 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     9: </head>
+    10: <body>
+    11:   <div class="container">
+    12:     <% if !current_user.id.nil? %>
+    13:       <div class="user pull-right">
+    14:         <h3>
+    15:           <%= "Hi, #{current_user.first_name}!" %> |
+  app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2353688125691451678_70179101199200'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (42.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.0ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 17:23:13 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-26 17:23:13 -0400
+
+
+Started GET "/signup" for ::1 at 2016-09-26 17:23:19 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (10.2ms)
+  Rendered users/new.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 39ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:       <div class="user pull-right">
+    14:         <h3>
+    15:           <%= "Hi, #{current_user.first_name}!" %> |
+    16:           <%= link_to "Logout", logout_path(current_user), method: :delete %>
+    17:         </h3>
+    18:       </div>
+    19:     <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2353688125691451678_70179097456440'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (45.7ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (99.6ms)
+
+
+Started GET "/signup" for ::1 at 2016-09-26 17:24:38 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 23ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-26 17:24:38 -0400
+
+
+Started GET "/login" for ::1 at 2016-09-26 17:25:18 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     9: </head>
+    10: <body>
+    11:   <div class="container">
+    12:     <% if !current_user.id.nil? %>
+    13:       <div class="user pull-right">
+    14:         <h3>
+    15:           <%= "Hi, #{current_user.first_name}!" %> |
+  app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2353688125691451678_70179072658620'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (46.7ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.3ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-09-26 18:08:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PinsController#new as HTML
+  [1m[35mUser Load (8.2ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 66ms (ActiveRecord: 23.0ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 18:08:37 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 516ms (Views: 513.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-26 18:08:38 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-26 18:08:39 -0400
+
+
+Started POST "/login" for ::1 at 2016-09-26 18:09:17 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uLN6+h9UcNPj3fisvKYVfwfsHEMly9yb4fS0t2HGSRvmAC3/LdbI6C5AhI0sraVUtUY2ePAxSBjiBY+uN1oo4Q==", "email"=>"glass@gmail.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (2.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "glass@gmail.com"]]
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 200ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/4" for ::1 at 2016-09-26 18:09:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 76ms (Views: 71.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 18:09:26 -0400
+Processing by PinsController#index as HTML
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Pin> at /Users/Michelle/Desktop/ruby/rails-pinning-app/app/models/pin.rb:10)
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.9ms)[0m  SELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1  [["user_id", 4]]
+  [1m[36mCategory Load (6.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (156.1ms)
+Completed 200 OK in 373ms (Views: 273.1ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-09-26 18:09:41 -0400
+Processing by PinsController#new as HTML
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCategory Load (4.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered pins/_form.erb (183.2ms)
+  Rendered pins/new.erb within layouts/application (231.4ms)
+Completed 200 OK in 404ms (Views: 390.3ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/pins/4" for ::1 at 2016-09-26 18:09:42 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPin Load (0.9ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered pins/show.erb within layouts/application (39.2ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 352ms (Views: 342.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 18:09:58 -0400
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.7ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mCategory Load (0.6ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (6.3ms)
+Completed 200 OK in 263ms (Views: 257.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pins/name-SummerFest" for ::1 at 2016-09-26 18:10:03 -0400
+Processing by PinsController#show_by_name as HTML
+  Parameters: {"slug"=>"SummerFest"}
+  [1m[36mPin Load (1.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1[0m  [["slug", "SummerFest"]]
+  Rendered pins/show.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 331ms (Views: 317.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 18:10:12 -0400
+Processing by PinsController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (2.9ms)[0m  SELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1  [["user_id", 4]]
+  [1m[36mCategory Load (1.9ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (50.7ms)
+Completed 200 OK in 427ms (Views: 414.9ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users/4" for ::1 at 2016-09-26 18:12:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for ::1 at 2016-09-26 18:12:30 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-09-26 18:14:44 -0400
+Processing by PinsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered pins/_form.erb (2.4ms)
+  Rendered pins/new.erb within layouts/application (3.3ms)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/pins" for ::1 at 2016-09-26 18:26:29 -0400
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E8kYvqegLCLAciQ8gnSyNbcj1iEU/veo4XpLf1juyBZNek+7lSKUGQ3vWB0SfwIeBYn8GsEEYyvii3BmDnKp7A==", "pin"=>{"user_id"=>"4", "title"=>"Bethany CRC church", "category_id"=>"3", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f84344497f0 @tempfile=#<Tempfile:/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/RackMultipart20160926-17581-1dmpfm0.png>, @original_filename="Screenshot 2016-09-26 18.25.36.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"pin[image]\"; filename=\"Screenshot 2016-09-26 18.25.36.png\"\r\nContent-Type: image/png\r\n">, "url"=>"http://www.bethanycrc.ca/", "slug"=>"Bethany CRC", "text"=>"Local church in Pelham Ontario"}, "commit"=>"     PIN IT        "}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Pin> at /Users/Michelle/Desktop/ruby/rails-pinning-app/app/models/pin.rb:10)
+Command :: PATH=/usr/local/bin/convert:$PATH; file -b --mime '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/baa4a778550331a8a003fff691a6b09920160926-17581-1u0sk1e.png'
+Command :: PATH=/usr/local/bin/convert:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/10b6d52b71184c7b36d356358a11357720160926-17581-s4gqs0.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/convert:$PATH; identify -format %m '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/10b6d52b71184c7b36d356358a11357720160926-17581-s4gqs0.png[0]'
+Command :: PATH=/usr/local/bin/convert:$PATH; convert '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/10b6d52b71184c7b36d356358a11357720160926-17581-s4gqs0.png[0]' -auto-orient -resize "300x300" '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/a95d1470802ba9da079150d2bfec099620160926-17581-mfbfv1'
+Command :: PATH=/usr/local/bin/convert:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/10b6d52b71184c7b36d356358a11357720160926-17581-s4gqs0.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/convert:$PATH; identify -format %m '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/10b6d52b71184c7b36d356358a11357720160926-17581-s4gqs0.png[0]'
+Command :: PATH=/usr/local/bin/convert:$PATH; convert '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/10b6d52b71184c7b36d356358a11357720160926-17581-s4gqs0.png[0]' -auto-orient -resize "60x60" '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/a95d1470802ba9da079150d2bfec099620160926-17581-lx5e95'
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mPin Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'Bethany CRC' LIMIT 1[0m
+Command :: PATH=/usr/local/bin/convert:$PATH; file -b --mime '/var/folders/gl/828jk0jn2rn7bpgswkrqwg400000gn/T/baa4a778550331a8a003fff691a6b09920160926-17581-as5qhg.png'
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "pins" ("title", "url", "slug", "text", "category_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Bethany CRC church"], ["url", "http://www.bethanycrc.ca/"], ["slug", "Bethany CRC"], ["text", "Local church in Pelham Ontario"], ["category_id", 3], ["image_file_name", "Screenshot_2016-09-26_18.25.36.png"], ["image_content_type", "image/png"], ["image_file_size", 602538], ["image_updated_at", "2016-09-26 22:26:29.454057"], ["user_id", 4]]
+[paperclip] saving /pins/images/000/000/018/original/Screenshot_2016-09-26_18.25.36.png
+[AWS S3 200 12.564322 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>602538,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: Screenshot 2016-09-26 18.25.36.png,:key=>"pins/images/000/000/018/original/Screenshot_2016-09-26_18.25.36.png")  
+
+[paperclip] saving /pins/images/000/000/018/medium/Screenshot_2016-09-26_18.25.36.png
+[AWS S3 200 1.779886 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>39591,:content_type=>"image/png",:data=>Paperclip::FileAdapter: a95d1470802ba9da079150d2bfec099620160926-17581-mfbfv1,:key=>"pins/images/000/000/018/medium/Screenshot_2016-09-26_18.25.36.png")  
+
+[paperclip] saving /pins/images/000/000/018/thumb/Screenshot_2016-09-26_18.25.36.png
+[AWS S3 200 0.300315 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>5849,:content_type=>"image/png",:data=>Paperclip::FileAdapter: a95d1470802ba9da079150d2bfec099620160926-17581-lx5e95,:key=>"pins/images/000/000/018/thumb/Screenshot_2016-09-26_18.25.36.png")  
+
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mPin Exists (0.7ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'Bethany CRC' AND "pins"."id" != 18) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'Bethany CRC' AND "pins"."id" != 18) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/pins/18
+Completed 302 Found in 15266ms (ActiveRecord: 18.9ms)
+
+
+Started GET "/pins/18" for ::1 at 2016-09-26 18:26:44 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mPin Load (0.4ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 18]]
+  Rendered pins/show.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 18:26:49 -0400
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (23.7ms)
+Completed 200 OK in 70ms (Views: 55.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 18:27:01 -0400
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (4.8ms)
+Completed 200 OK in 23ms (Views: 19.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-26 18:27:01 -0400
+
+
+Started GET "/" for ::1 at 2016-09-27 20:57:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (7.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (7.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Pin> at /Users/Michelle/Desktop/ruby/rails-pinning-app/app/models/pin.rb:10)
+  [1m[36mPin Load (0.6ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered pins/index.erb within layouts/application (31.7ms)
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'glass@gmail.com' AND "users"."id" != 4) LIMIT 1
+Completed 200 OK in 375ms (Views: 313.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/assets/pins.self-4be7b95df1aac8c7164144650725bb1a4b4d231298ecb217945baf498d38e985.css?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/scaffolds.self-4c07eee7d563bd724b089f0e84e824afdcfcdf1d7cf16253f95c94e2824e7685.css?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/application.self-e7a2f61f11e45634a8aec5caf2b0ead9e7b1d10aa20ddfd12dcb28faa6ed5289.css?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-09-27 20:57:50 -0400
+
+
+Started GET "/login" for ::1 at 2016-09-27 20:57:55 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=4)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'glass@gmail.com' AND "users"."id" != 4) LIMIT 1
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/signup" for ::1 at 2016-09-27 20:58:04 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (10.9ms)
+  Rendered users/new.html.erb within layouts/application (16.6ms)
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.4ms)
