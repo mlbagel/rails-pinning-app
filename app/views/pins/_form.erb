@@ -12,8 +12,9 @@
 
 
   <%= form_for(@pin, multipart: true, :html => {:class => 'col-xlg-8 form-horizontal'}) do |f| %>
+  <%= "#{current_user.id}" %>
 
-  <%= f.hidden_field :user_id, value: current_user.id %> 
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
       <div class="form-group">
         <label for="pin_title" class="control-label  col-xlg-2">Title</label>

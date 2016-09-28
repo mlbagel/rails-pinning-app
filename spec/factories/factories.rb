@@ -5,11 +5,13 @@ FactoryGirl.define do
   end
 
   factory :pin do
+
     title "Rails Cheatsheet"
     url "http://rails-cheat.com"
     text "A great tool for beginning developers"
     slug
     category_id Category.find_by_name("rails")
+
   end
 
   factory :user do

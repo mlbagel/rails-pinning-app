@@ -4,6 +4,7 @@ RSpec.describe PinsController do
   before(:each) do
   @user = FactoryGirl.create(:user)
   login(@user)
+  @pin = FactoryGirl.create!(:pin)
 end
 
 after(:each) do

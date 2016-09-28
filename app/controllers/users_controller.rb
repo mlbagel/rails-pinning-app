@@ -36,6 +36,8 @@ class UsersController < ApplicationController
       render :login
     else
       session[:user_id] = @user.id
+      @Tellmesessionid = session[:user_id]
+
     #redirect_to "/users/#{@user[:id]}"
     redirect_to user_path(@user)
     end
@@ -82,8 +84,8 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session.delete(:user_id)
-    redirect_to login_path
+   session.delete(:user_id)
+   redirect_to login_path
   end
 
 

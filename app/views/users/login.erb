@@ -7,24 +7,28 @@
   </div>
 <% end %>
 
+
 <div class="header">
   <h1>Login</h1>
-</div>
 
-
-  <%= form_tag '/login' %>
+  <%= form_tag ('/login')  %>
 
 <div class="form-group">
   <div class="field col-xlg-8">
-
+    <label for="email" >Email:</label>
     <%= email_field_tag 'email', 'email address' %>
   </div>
 
   <div class="field col-xlg-8">
-    <%= password_field_tag 'password', 'Password' %>
+    <label for="password">Password:</label>
+    <%= password_field_tag 'password', nil %>
   </div>
 
   <div class="field col-xlg-8">
-    <%= submit_tag(value='Submit') %>
+    <%= submit_tag(value='Sign In') %>
   </div>
 </div>
+
+</div>
+<br>
+<%= link_to 'Sign Up', signup_path %>
