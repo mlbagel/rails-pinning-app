@@ -1,9 +1,9 @@
 class PinsController < ApplicationController
 
-  before_action :require_login, except: [:show, :show_by_name, :index]
+  before_action :require_login, except: [:show, :show_by_name]
 
   def index
-    #@pins = Pin.where(user_id: current_user.id)
+    #@pins = Pin.all
     @pins = current_user.pins.all
   end
 
