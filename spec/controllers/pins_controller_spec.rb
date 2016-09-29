@@ -25,11 +25,11 @@ end
       expect(assigns[:pins]).to eq(Pin.where(user_id: @user.id))
     end
 
-  #  it 'redirects to Login when Logged out' do
-  #    logout(@user)
-  #    get :index
-  #    expect(response).to redirect_to(:login)
-  #  end
+   it 'redirects to Login when Logged out' do
+      logout(@user)
+      get :index
+      expect(response).to redirect_to(:login)
+    end
   end
 
   describe "GET new" do
@@ -47,37 +47,42 @@ end
         get :new
         expect(assigns(:pin)).to be_a_new(Pin)
       end
+      it 'redirects to Login when Logged out' do
+         logout(@user)
+         get :new
+         expect(response).to redirect_to(:login)
+       end
     end
 
     describe "POST create" do
-      #before(:each) do
-      #  @pin_hash = {
-      #    title: "Rails Wizard",
-      #    url: "http://railswizard.org",
-      #    slug: "rails-wizard",
-      #    text: "A fun and helpful Rails Resource",
-      #    category_id: "rails"}
-      #end
+      before(:each) do
+        @pin_hash = {
+          title: "Rails Wizard",
+          url: "http://railswizard.org",
+          slug: "rails-wizard",
+          text: "A fun and helpful Rails Resource",
+          category_id: "rails"}
+      end
 
-      #after(:each) do
-      #  pin = Pin.find_by_slug("rails-wizard")
-      #  if !pin.nil?
-      #    pin.destroy
-      #  end
-      #end
+      after(:each) do
+        pin = Pin.find_by_slug("rails-wizard")
+        if !pin.nil?
+          pin.destroy
+        end
+      end
 
       it 'responds with a redirect' do
-        post :create, pin: @pin
+        post :create, pin: @pin_hash
         expect(response.redirect?).to be(true)
       end
 
       it 'creates a pin' do
-        post :create, pin: @pin
-        expect(Pin.find_by_slug("rails").present?).to be(true)
+        post :create, pin: @pin_hash
+        expect(Pin.find_by_slug("rails-wizard").present?).to be(true)
       end
 
       it 'redirects to the show view' do
-        post :create, pin: @pin
+        post :create, pin: @pin_hash
         expect(response).to redirect_to(pin_url(assigns(:pin)))
       end
 
@@ -85,8 +90,8 @@ end
         # The title is required in the Pin model, so we'll
         # delete the title from the @pin_hash in order
         # to test what happens with invalid parameters
-        @pin.delete(:title)
-        post :create, pin: @pin
+        @pin_hash.delete(:title)
+        post :create, pin: @pin_hash
         expect(response).to render_template(:new)
       end
 
@@ -94,17 +99,22 @@ end
         # The title is required in the Pin model, so we'll
         # delete the title from the @pin_hash in order
         # to test what happens with invalid parameters
-        @pin.delete(:title)
-        post :create, pin: @pin
+        @pin_hash.delete(:title)
+        post :create, pin: @pin_hash
         expect(assigns[:errors].present?).to be(true)
       end
+      it 'redirects to Login when Logged out' do
+         logout(@user)
+         post :create, pin: @pin_hash
+         expect(response).to redirect_to(:login)
+       end
 
     end
 
     describe "GET edit" do
-      before(:each) do
-        @pin = Pin.find(3)
-      end
+      #before(:each) do
+      #  @pin = Pin.find(3)
+      #end
 
       it 'responds with successfully' do
         get :edit, id: @pin.id
@@ -122,46 +132,56 @@ end
         get :edit, id: @pin.id
         expect(assigns(:pin)).to eq(@pin)
       end
+      it 'redirects to Login when Logged out' do
+         logout(@user)
+         get :edit, id: @pin.id
+         expect(response).to redirect_to(:login)
+       end
     end
 
-    describe "POST Update" do
+    describe "PUT Update" do
       #with valid parameters
-      #before(:each) do
-      #  @pin = Pin.find(4)
-      #  @pin_hash = {
-      #    title: "Ruby Quiz",
-      #    url: "http://rubyquiz.org",
-      #    slug: "ruby-quiz",
-      #    text: "A collection of quizzes on the Ruby programming language.",
-      #    category_id: "1"}
-      #end
+      before(:each) do
+        @pin = Pin.find(4)
+        @pin_hash = {
+          title: "Ruby Quiz",
+          url: "http://rubyquiz.org",
+          slug: "ruby-quiz",
+          text: "A collection of quizzes on the Ruby programming language.",
+          category_id: "1"}
+      end
       it 'responds with success' do
-        put :update, id: @pin.id, pin: @pin
+        put :update, id: @pin.id, pin: @pin_hash
         expect(response).to redirect_to("/pins/#{@pin.id}")
       end
       it 'upates a pin' do
-        put :update, id: @pin.id, pin: @pin
+        put :update, id: @pin.id, pin: @pin_hash
         expect(Pin.find(@pin.id).slug).to eq(@pin[:slug])
       end
       it 'redirects to the show view' do
-        put :update, id: @pin.id, pin: @pin
+        put :update, id: @pin.id, pin: @pin_hash
         expect(response).to redirect_to(pin_url(assigns(:pin)))
       end
+      it 'redirects to Login when Logged out' do
+         logout(@user)
+         put :update, id: @pin.id, pin: @pin_hash
+         expect(response).to redirect_to(:login)
+       end
     end
 
-    describe "POST Update" do
+    describe "PUT Update" do
       #with invalid parameters
 
-      #before(:each) do
+      before(:each) do
       #  @pin = Pin.find(4)
-      #  @pin_hash = {
-      #    title: "",
-      #    url: "http://rubyquiz.org",
-      #    slug: "ruby-quiz",
-      #    text: "A collection of quizzes on the Ruby programming language.",
-      #    category_id: "1",
-      #  category_iiid: "2"}
-      #  end
+        @pin_hash = {
+          title: "",
+          url: "http://rubyquiz.org",
+          slug: "ruby-quiz",
+          text: "A collection of quizzes on the Ruby programming language.",
+          category_id: "1",
+        category_iiid: "2"}
+       end
 
         it "assigns an @errors instance variable" do
           put :update, id: @pin.id, pin: @pin_hash
@@ -171,6 +191,11 @@ end
           put :update, id: @pin.id, pin: @pin_hash
           expect(response).to render_template(:edit)
         end
+        it 'redirects to Login when Logged out' do
+           logout(@user)
+           put :update, id: @pin.id, pin: @pin_hash
+           expect(response).to redirect_to(:login)
+         end
 
       end
 end

@@ -28,8 +28,8 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-#def logout(user)
-#  if session[:user_id] == user.id
-#    session.delete(:user_id)
-#  end
-#end
+def logout(user)
+  if session[:user_id] == user.id
+    session.delete(:user_id)
+  end
+end

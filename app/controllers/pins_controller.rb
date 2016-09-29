@@ -3,8 +3,8 @@ class PinsController < ApplicationController
   before_action :require_login, except: [:show, :show_by_name, :index]
 
   def index
-    @pins = Pin.where(user_id: current_user.id)
-    #@pins = current_user.pins
+    #@pins = Pin.where(user_id: current_user.id)
+    @pins = current_user.pins.all
   end
 
   def show
@@ -19,8 +19,6 @@ class PinsController < ApplicationController
   def new
     @pin = Pin.new
   end
-
-
 
   def create
     @pin = Pin.create(pin_params)

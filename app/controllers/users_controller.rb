@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    current_user = nil
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -83,7 +83,6 @@ class UsersController < ApplicationController
 
   def logout
    session.delete(:user_id)
-   current_user = nil
    redirect_to login_path
   end
 
