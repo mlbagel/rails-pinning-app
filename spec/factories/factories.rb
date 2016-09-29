@@ -1,17 +1,19 @@
 FactoryGirl.define do
 
+  factory :category do
+    name "rails"
+  end
+
   sequence :slug do |n|
-  "slug#{n}"
+    "slug#{n}"
   end
 
   factory :pin do
-
     title "Rails Cheatsheet"
     url "http://rails-cheat.com"
     text "A great tool for beginning developers"
     slug
-    category_id Category.find_by_name("rails")
-
+    category
   end
 
   factory :user do

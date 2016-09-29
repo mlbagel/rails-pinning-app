@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:show, :edit, :update, :destroy, :index]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -36,10 +36,7 @@ class UsersController < ApplicationController
       render :login
     else
       session[:user_id] = @user.id
-      @Tellmesessionid = session[:user_id]
-
-    #redirect_to "/users/#{@user[:id]}"
-    redirect_to user_path(@user)
+      redirect_to user_path(@user)
     end
   end
 
@@ -77,6 +74,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+    current_user = nil
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -85,6 +83,7 @@ class UsersController < ApplicationController
 
   def logout
    session.delete(:user_id)
+   current_user = nil
    redirect_to login_path
   end
 

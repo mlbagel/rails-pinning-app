@@ -4,7 +4,8 @@ RSpec.describe PinsController do
   before(:each) do
   @user = FactoryGirl.create(:user)
   login(@user)
-  @pin = FactoryGirl.create!(:pin)
+  @pin = FactoryGirl.create(:pin)
+
 end
 
 after(:each) do
@@ -66,17 +67,17 @@ end
       #end
 
       it 'responds with a redirect' do
-        post :create, pin: @pin_hash
+        post :create, pin: @pin
         expect(response.redirect?).to be(true)
       end
 
       it 'creates a pin' do
-        post :create, pin: @pin_hash
-        expect(Pin.find_by_slug("rails-wizard").present?).to be(true)
+        post :create, pin: @pin
+        expect(Pin.find_by_slug("rails").present?).to be(true)
       end
 
       it 'redirects to the show view' do
-        post :create, pin: @pin_hash
+        post :create, pin: @pin
         expect(response).to redirect_to(pin_url(assigns(:pin)))
       end
 
@@ -84,8 +85,8 @@ end
         # The title is required in the Pin model, so we'll
         # delete the title from the @pin_hash in order
         # to test what happens with invalid parameters
-        @pin_hash.delete(:title)
-        post :create, pin: @pin_hash
+        @pin.delete(:title)
+        post :create, pin: @pin
         expect(response).to render_template(:new)
       end
 
@@ -93,17 +94,17 @@ end
         # The title is required in the Pin model, so we'll
         # delete the title from the @pin_hash in order
         # to test what happens with invalid parameters
-        @pin_hash.delete(:title)
-        post :create, pin: @pin_hash
+        @pin.delete(:title)
+        post :create, pin: @pin
         expect(assigns[:errors].present?).to be(true)
       end
 
     end
 
     describe "GET edit" do
-      #before(:each) do
-      #  @pin = Pin.find(3)
-      #end
+      before(:each) do
+        @pin = Pin.find(3)
+      end
 
       it 'responds with successfully' do
         get :edit, id: @pin.id
@@ -135,15 +136,15 @@ end
       #    category_id: "1"}
       #end
       it 'responds with success' do
-        put :update, id: @pin.id, pin: @pin_hash
+        put :update, id: @pin.id, pin: @pin
         expect(response).to redirect_to("/pins/#{@pin.id}")
       end
       it 'upates a pin' do
-        put :update, id: @pin.id, pin: @pin_hash
-        expect(Pin.find(@pin.id).slug).to eq(@pin_hash[:slug])
+        put :update, id: @pin.id, pin: @pin
+        expect(Pin.find(@pin.id).slug).to eq(@pin[:slug])
       end
       it 'redirects to the show view' do
-        put :update, id: @pin.id, pin: @pin_hash
+        put :update, id: @pin.id, pin: @pin
         expect(response).to redirect_to(pin_url(assigns(:pin)))
       end
     end
