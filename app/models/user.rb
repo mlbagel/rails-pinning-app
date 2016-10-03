@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email
   validates_uniqueness_of :email
 
-  has_many :pins, dependent: :destroy
+  has_many :pinnings, dependent: :destroy
+  has_many :pins, through: :pinnings,  dependent: :destroy
+
+
 
   def self.authenticate(email, password)
    @user = User.find_by_email(email)

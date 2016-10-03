@@ -22,7 +22,7 @@ end
 
     it 'populates @pins with all pins' do
       get :index
-      expect(assigns[:pins]).to eq(Pin.where(user_id: @user.id))
+      expect(assigns[:pins]).to eq(Pin.all)
     end
 
    it 'redirects to Login when Logged out' do
@@ -198,4 +198,38 @@ end
          end
 
       end
+
+    describe "POST repin" do
+      before(:each) do
+        @user = FactoryGirl.create(:user)
+        login(@user)
+        @pin = FactoryGirl.create(:pin)
+      end
+
+      after(:each) do
+        pin = Pin.find_by_slug("rails-wizard")
+        if !pin.nil?
+          pin.destroy
+        end
+        logout(@user)
+      end
+
+      it 'responds with a redirect' do
+        post :repin, id: @pin.id
+        expect(response.redirect?).to be(true)
+
+      end
+
+      it 'creates a user.pin' do
+        post :repin, id: @pin.id
+        #expect(assigns(:pin)).to equal(@user.pinning)
+        expect(@user.pins.present?).to be(true)
+      end
+
+      it 'redirects to the user show page' do
+        post :repin, id: @pin.id
+        expect(response).to redirect_to(user_path(@user))
+      end
+
+    end
 end

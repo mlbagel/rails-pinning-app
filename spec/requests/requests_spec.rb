@@ -11,7 +11,7 @@ RSpec.describe "Our Application Routes" do
     it 'populates the @pin variable with the appropriate pin' do
       pin = Pin.first
       get "/pins/name-#{pin.slug}"
-      expect(assigns[:pin]).to eq(Pin.first)
+      expect(assigns[:pin]).to eq(pin)
     end
   end
 

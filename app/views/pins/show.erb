@@ -1,4 +1,4 @@
-<div class="header">
+  <hr/>
   <h1>
     <i class="fa fa-laptop"></i>
     <span style="font-variant: small-caps"><%= "#{@pin.title}" %></span>
@@ -9,16 +9,31 @@
   <% if @pin %>
     <img src="<%= @pin.image.url(:medium) %>">
   <% end %>
+
   <p class="header"><%= "#{@pin.text}" %></p>
 
   <hr/>
   <p>
+
     <b>Visit <%= "#{@pin.title}" %> at: </b>
 
     <%= link_to "#{@pin.url}", "#{@pin.url}",html_options={target: "_blank"} %>
   </p>
-</div>
+  </div>
+  <p>
+  <%= "This pin has been pinned by..." %>
+  <br>
+  <%  @users.each  do |user| %>
+  <%= "#{user.first_name} #{user.last_name}" %>
+  <% end %>
+  </p>
+
+<%= link_to repin_path(@pin), class: "btn btn-default", method: "post" do %>
+  <i class="fa fa-thumb-tack"></i>
+  Repin!
+<% end %>
+<br>
 <a href="/">
-  <br/><i class="fa fa-arrow-circle-left"></i>
+<i class="fa fa-home"></i>
   Back to Home
 </a>
