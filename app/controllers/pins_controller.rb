@@ -8,7 +8,7 @@ class PinsController < ApplicationController
   end
 
   def show
-    @pin = find(params[:id])
+    @pin = Pin.find(params[:id])
     @users = @pin.users
     @pins = current_user.pins
   end
@@ -29,6 +29,7 @@ class PinsController < ApplicationController
 
   def new
     @pin = Pin.new
+    @pin.pinnings.build
   end
 
   def create

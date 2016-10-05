@@ -222,7 +222,7 @@ end
 
       it 'creates a user.pin' do
         post :repin, id: @pin.id
-        #expect(assigns(:pin)).to equal(@user.pinning)
+        #expect(assigns(:pin)).to equal(@pin.users)
         expect(@user.pins.present?).to be(true)
       end
 

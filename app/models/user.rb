@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email
   validates_uniqueness_of :email
 
+  has_many :boards
   has_many :pinnings, dependent: :destroy
   has_many :pins, through: :pinnings,  dependent: :destroy
 
