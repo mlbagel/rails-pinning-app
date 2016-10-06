@@ -17,7 +17,6 @@ class PinsController < ApplicationController
     @pin = Pin.find_by_slug(params[:slug])
     #@pin = current_user.pins.find_by_slug(params[:slug])
     @users=@pin.users
-
     render :show
   end
 
@@ -33,7 +32,7 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = Pin.create(pin_params)
+    @pin = Pin.new(pin_params)
     if @pin.valid?
         @pin.save
         redirect_to pin_path(@pin)

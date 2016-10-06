@@ -20,9 +20,13 @@
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownmenu1">
         <% current_user.boards.each do |board| %>
           <li role="presentation">
-            <%= link_to "#{board.name}", boards_path(board), "role" => "menuitem", "tabindex"=> "-1" %>  
+            <%= link_to "#{board.name}", board_path(board.id), "role" => "menuitem", "tabindex"=> "-1" %>
           </li>
           <% end %>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation">
+           <%= link_to "Create a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>
+          </li>
           <li role="presentation" class="divider"></li>
           <li role="presentation">
             <%= link_to "Add a Board", new_board_path, "role" => "menuitem", "tabindex"=> "-1" %>

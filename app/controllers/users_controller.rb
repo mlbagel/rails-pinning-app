@@ -16,13 +16,16 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-  
+
     @pins = current_user.pins
   end
 
   # GET /users/new
   def new
     @user = User.new
+    if current_user
+      redirect_to(root_path, :notice => "Already registered")
+    end
   end
 
   # GET /users/1/edit
