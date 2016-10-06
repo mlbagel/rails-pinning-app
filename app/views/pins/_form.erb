@@ -10,70 +10,58 @@
   </div>
 <% end %>
 
-  <% if logged_in? %>
 
-  <%= form_for(@pin, url: repin_path(@pin), method: "post") do |f| %>
+
+<div class="form-group">
+  <%= form_for(@pin, multipart: true, :html => {:class => 'col-xlg-8 form-horizontal'}) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-      <div class="form-group">
-        <label for="pin_title" class="control-label  col-xlg-2">Title</label>
-        <div class="col-xlg-8">
-          <%= f.text_field :title %>
+      <div class="row">
+        <div class="form-group">
+          <label for="pin_title" class="control-label  col-sm-offset-2 col-sm-2">Title</label>
+            <%= f.text_field :title %>
+        </div>
+
+        <div class="form-group">
+          <label for="pin_category_id" class="control-label  col-sm-offset-2 col-sm-2">Category</label>
+            <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+        </div>
+
+        <div class="form-group">
+          <label for="pin_image" class="control-label  col-sm-offset-2 col-sm-2">Image</label>
+            <%= f.file_field :image  %>
+        </div>
+
+        <div class="form-group">
+          <label for="pin_url" class="control-label  col-sm-offset-2 col-sm-2">Web Address</label>
+            <%= f.url_field(:url, options={}) %>
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="pin_category_id" class="control-label col-xlg-2">Category</label>
-        <div class="col-xlg-8">
-          <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+        <div class="form-group">
+          <label for="pin_slug" class="control-label  col-sm-offset-2 col-sm-2">Web short text</label>
+              <%= f.text_field :slug %>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="pin_image" class="control-label col-xlg-2">Image</label>
-        <div class="col-xlg-8">
-          <%= f.file_field :image  %>
+      <div class="row">
+
+        <div class="form-group">
+          <label for="pin_text" class="control-label  col-sm-offset-2 col-sm-2">Description</label>
+              <%= f.text_field :text %>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="pin_url" class="control-label col-xlg-2">Web Address</label>
-        <div class="col-xlg-8">
-          <%= f.url_field(:url, options={}) %>
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="pin_slug" class="control-label col-xlg-2">Web short text</label>
-          <div class="col-xlg-8">
-            <%= f.text_field :slug %>
-          </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pin_text" class="control-label col-xlg-2">Description</label>
-          <div class=" col-xlg-8">
-            <%= f.text_field :text %>
-          </div>
-      </div>
-      <div class="form-group">
         <%= f.fields_for :pinnings do |p| %>
+        <div class="form-group">
+            <label>Which board?</label>
+        </div>
+        <div class="form-group">
+            <%= p.collection_select(:board_id, current_user.boards, :id, :name, {}, {class: "form-control"}) %>
 
-        <div class=" col-xlg-8">
-          <label>Which board?</label>
-          <%= p.collection_select(:board_id, current_user.boards, :id, :name, {}, {class: "form-control"}) %>
+            <%= p.hidden_field :user_id, value: current_user.id %>
+              <% end %>
         </div>
-          <%= p.hidden_field :user_id, value: current_user.id %>
-            <% end %>
-        </div>
+    </div>
 
-      <div class="col-xlg-12">
-        <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
-        <i class="fa-fa-diamond"></i>
-        Repin!
-        <% end %>
-        </div>
-      <% end %>
-    <% else %>
-        <%= link_to "Log in to repin!", login_path %>
-  <% end %>
+        <%= f.button :submit, class: "btn btn-default pinterest-theme-button" %>
+<% end %>
