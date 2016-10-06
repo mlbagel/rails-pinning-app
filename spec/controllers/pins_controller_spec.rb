@@ -207,7 +207,7 @@ end
       end
 
       after(:each) do
-        pin = Pin.find_by_slug("rails-wizard")
+        pin = Pin.find_by_slug("rails")
         if !pin.nil?
           pin.destroy
         end
@@ -222,8 +222,8 @@ end
 
       it 'creates a user.pin' do
         post :repin, id: @pin.id
-        #expect(assigns(:pin)).to equal(@pin.users)
-        expect(@user.pins.present?).to be(true)
+        #expect(assigns(:pin)).to equal(current_user.pin)
+        expect(assigns(:pin)).to eq(Pin.find(@pin.id))
       end
 
       it 'redirects to the user show page' do

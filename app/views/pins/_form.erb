@@ -1,19 +1,18 @@
 
-    <% if !@errors.nil? %>
-    <div class="alert alert-danger">
-      <label class="rails-bootstrap-forms-error-summary col-xlg-offset-3 col-xlg-6"><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
-        <ul>
-          <% @errors.full_messages.each do |msg| %>
-            <li><strong><%= "#{msg}" %></strong></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<% if !@errors.nil? %>
+<div class="alert alert-danger">
+  <label class="rails-bootstrap-forms-error-summary col-xlg-offset-3 col-xlg-6"><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
+    <ul>
+      <% @errors.full_messages.each do |msg| %>
+        <li><strong><%= "#{msg}" %></strong></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
+  <% if logged_in? %>
 
-  <%= form_for(@pin, multipart: true, :html => {:class => 'col-xlg-8 form-horizontal'}) do |f| %>
-
-
+  <%= form_for @pin, url: repin_path(@pin), method: "post" do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
       <div class="form-group">
@@ -57,20 +56,24 @@
             <%= f.text_field :text %>
           </div>
       </div>
-
       <div class="form-group">
+        <%= f.fields_for :pinnings do |p| %>
+
         <div class=" col-xlg-8">
-          <%= p.label Which board? %>
-        
-          <%= f.fields_for :pinnings do |p| %>
+          <label>Which board?</label>
           <%= p.collection_select(:board_id, current_user.boards, :id, :name, {}, {class: "form-control"}) %>
-          <%= p.hidden_field :user_id, value: current_user.id %>
-          <% end %>
         </div>
-      </div>
+          <%= p.hidden_field :user_id, value: current_user.id %>
+            <% end %>
+        </div>
 
       <div class="col-xlg-12">
-        <%= f.submit "     PIN IT        " %>
-      </div>
-
+        <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
+        <i class="fa-fa-diamond"></i>
+        Repin!
+        <% end %>
+        </div>
+      <% end %>
+    <% else %>
+        <%= link_to "Log in to repin!", login_path %>
   <% end %>

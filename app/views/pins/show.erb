@@ -20,6 +20,7 @@
     <%= link_to "#{@pin.url}", "#{@pin.url}",html_options={target: "_blank"} %>
   </p>
   </div>
+  <div>
   <p>
   <%= "This pin has been pinned by..." %>
   <br>
@@ -27,13 +28,8 @@
   <%= "#{user.first_name} #{user.last_name}" %>
   <% end %>
   </p>
+</div>
+<div class="repin">
+<%= render partial: "shared/repin_form" , locals: {pin: @pin} %>
 
-<%= link_to repin_path(@pin), class: "btn btn-default", method: "post" do %>
-  <i class="fa fa-thumb-tack"></i>
-  Repin!
-<% end %>
-<br>
-<a href="/">
-<i class="fa fa-home"></i>
-  Back to Home
-</a>
+</div>
