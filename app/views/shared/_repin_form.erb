@@ -21,6 +21,7 @@
           <%= p.collection_select(:board_id, current_user.boards, :id, :name, {}, {class: "form-control"}) %>
         </div>
           <%= p.hidden_field :user_id, value: current_user.id %>
+          <%= pin.pinnings.inspect %>
             <% end %>
         </div>
 

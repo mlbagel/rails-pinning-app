@@ -23,6 +23,7 @@
             </div>
             <hr/>
             <p class="text"><%= "#{pin.text}" %></p>
+            <%= pin.pinnings.inspect %>
             <%= link_to repin_path(pin), class: "btn btn-default", method: "post" do %>
             <i class="fa fa-thumb-tack"></i>
               Repin!

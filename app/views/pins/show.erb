@@ -1,3 +1,4 @@
+
   <hr/>
   <h1>
     <i class="fa fa-laptop"></i>
@@ -24,6 +25,7 @@
   <p>
   <%= "This pin has been pinned by..." %>
   <br>
+
   <%  @users.each  do |user| %>
   <%= "#{user.first_name} #{user.last_name}" %>
   <% end %>
@@ -31,5 +33,5 @@
 </div>
 <div class="repin">
 <%= render partial: "shared/repin_form" , locals: {pin: @pin} %>
-
+<%= @pin.pinnings.inspect %>
 </div>

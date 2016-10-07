@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
 
   has_secure_password
-  validates_presence_of :first_name, :last_name, :email
+  validates_presence_of :first_name, :last_name, :email, :password
   validates_uniqueness_of :email
 
   has_many :boards
-  has_many :pinnings, dependent: :destroy
-  has_many :pins, through: :pinnings,  dependent: :destroy
+  has_many :pinnings
+  has_many :pins, through: :pinnings
 
 
 
