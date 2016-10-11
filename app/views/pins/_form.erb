@@ -1,7 +1,13 @@
-
-
-
-
+<% if !@errors.nil? %>
+<div class="alert alert-danger">
+  <label class="rails-bootstrap-forms-error-summary col-xlg-offset-3 col-xlg-6"><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
+    <ul>
+      <% @errors.full_messages.each do |msg| %>
+        <li><strong><%= "#{msg}" %></strong></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div class="form-group">
   <%= form_for(@pin, multipart: true, :html => {:class => 'col-xlg-8 form-horizontal'}) do |f| %>
@@ -42,7 +48,7 @@
         </div>
 
 
-        <%= f.fields_for :pinnings do |p| %>
+        <%= f.fields_for :pinning do |p| %>
         <div class="form-group">
             <label>Which board?</label>
         </div>
@@ -54,5 +60,5 @@
         </div>
     </div>
 
-        <%= f.button :submit, class: "btn btn-default pinterest-theme-button" %>
+        <%= f.submit :submit, class: "btn btn-default pinterest-theme-button" %>
 <% end %>

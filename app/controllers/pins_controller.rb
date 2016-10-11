@@ -21,13 +21,6 @@ class PinsController < ApplicationController
     render :show
   end
 
-  def repin
-
-    @pin = Pin.find(params[:id])
-    @pin.pinnings.create(user: current_user)
-    redirect_to user_path(current_user)
-  end
-
   def new
     @pin = Pin.new
     @pin.pinnings.build
@@ -45,15 +38,23 @@ class PinsController < ApplicationController
   end
 
   def edit
-    debugger
+
     @pin = Pin.find(params[:id])
+
+    #@boardname = @pin.pinnings.find(params[:id][:board_id])
     render :edit
   end
 
   def update
+    #debugger
     @pin = Pin.find(params[:id])
 
-    if @pin.update_attributes(pin_params)
+    #@pin.pinning = current_user.pinning.find(params[:board_id])
+
+# we want the id of the pinning which the pinnings table assigned to the pinning so that we can update the correct pinning, and not move sallie's pinned hairstyle into kyle's video game board
+    #@pin.pinnings.last.update_attribute(:board_id, params[:pin][:pinning][:board_id])
+    #@pin.pinnings.update_attribute(params[:pin][:pinning][:board_id])
+    if @pin.update(pin_params)
       redirect_to pin_path(@pin)
     else
       @errors = @pin.errors
@@ -61,9 +62,11 @@ class PinsController < ApplicationController
     end
   end
 
-
-
-
+  def repin
+    @pin = Pin.find(params[:id])
+    @pin.pinnings.create(user: current_user, board_id: params[:pin][:pinning][:board_id])
+    redirect_to user_path(current_user)
+  end
 
   private
 

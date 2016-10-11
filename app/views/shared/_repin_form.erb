@@ -14,14 +14,14 @@
   <% if logged_in? %>
   <%= form_for(pin, url: repin_path(pin), method: "post") do |f| %>
 
-<%= f.fields_for :pinnings do |p| %>
+<%= f.fields_for :pinning do |p| %>
       <div class="form-group">
         <div class=" col-xlg-8">
           <label>Which board?</label>
           <%= p.collection_select(:board_id, current_user.boards, :id, :name, {}, {class: "form-control"}) %>
         </div>
           <%= p.hidden_field :user_id, value: current_user.id %>
-          <%= pin.pinnings.inspect %>
+          
             <% end %>
         </div>
 

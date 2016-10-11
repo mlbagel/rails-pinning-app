@@ -21,17 +21,17 @@
     <%= link_to "#{@pin.url}", "#{@pin.url}",html_options={target: "_blank"} %>
   </p>
   </div>
+  <div class="repin">
+  <%= render partial: "shared/repin_form" , locals: {pin: @pin} %>
+  <%= @pin.pinnings.inspect %>
+  </div>
   <div>
   <p>
   <%= "This pin has been pinned by..." %>
   <br>
 
   <%  @users.each  do |user| %>
-  <%= "#{user.first_name} #{user.last_name}" %>
+  <%= "#{user.first_name} #{user.last_name}," %>
   <% end %>
   </p>
-</div>
-<div class="repin">
-<%= render partial: "shared/repin_form" , locals: {pin: @pin} %>
-<%= @pin.pinnings.inspect %>
 </div>

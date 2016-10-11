@@ -2,7 +2,7 @@
 
 class BoardsController < ApplicationController
   before_action :require_login, only: [:new, :create,:show, :edit, :update, :destroy]
-#  before_action :set_board, only: [:show, :edit, :update, :destroy]
+ before_action :set_board, only: [:show, :edit, :update, :destroy]
 
   # GET /boards
   # GET /boards.json

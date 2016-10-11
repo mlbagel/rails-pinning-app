@@ -11,30 +11,35 @@
   <div class="container">
     <div class="row">
       <% if logged_in? %>
-      <div class="dropdown">
-      <button id="dropdownMenu1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
-        <%= "#{current_user.first_name}" %>
-        <span class="caret"></span>
-      </button>
+      <div class="pull-right dropdown">
+        <button id="dropdownMenu1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+          <%= "#{current_user.first_name}" %>
+          <span class="caret"></span>
+        </button>
 
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownmenu1">
-        <% current_user.boards.each do |board| %>
+          <li role="presentation">
+            <%= link_to "All Pins : Home Page", root_path, "role" => "menuitem", "tabindex" => "-1" %>
+          </li>
+          <li role="presentation" class ="divider"></li>
+          <li role="presentation">
+            <%= link_to "All My Pins", user_path(current_user), "role" => "menuitem", "tabindex"=> "-1" %>
+          </li>
+          <li role="presentation" class="divider"></li>
+          <% current_user.boards.each do |board| %>
           <li role="presentation">
             <%= link_to "#{board.name}", board_path(board.id), "role" => "menuitem", "tabindex"=> "-1" %>
           </li>
           <% end %>
           <li role="presentation" class="divider"></li>
           <li role="presentation">
-           <%= link_to "Create a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>
+          <%= link_to "Add a Board", new_board_path, "role" => "menuitem", "tabindex"=> "-1" %>
           </li>
           <li role="presentation" class="divider"></li>
           <li role="presentation">
-            <%= link_to "Add a Board", new_board_path, "role" => "menuitem", "tabindex"=> "-1" %>
+          <%= link_to "Create a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>
           </li>
           <li role="presentation" class="divider"></li>
-          <li role="presentation">
-            <%= link_to "Home", root_path, "role" => "menuitem", "tabindex" => "-1" %>
-          </li>
           <li role="presentation">
             <%= link_to "Logout", logout_path(current_user), :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
           </li>
@@ -46,5 +51,5 @@
     <%= yield %>
     </div>
   </div>
-</body>
+  </body>
 </html>
