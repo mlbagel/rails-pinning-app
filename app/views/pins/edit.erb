@@ -1,2 +1,12 @@
-<%= "#{@pin.pinnings.name}" %>
+<%= @pin.inspect %>
+<hr>
+<%= @pin.pinnings.inspect %>
+<hr>
+<%= @boards.inspect %>
+<%= @boards.board.inspect %>
+
+<hr>
+<h2 class="text center">
+<%= @boards.board.name %>
+</h2>
 <%= render "form" %>

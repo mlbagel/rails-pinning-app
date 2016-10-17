@@ -3,6 +3,8 @@ RSpec.describe PinsController do
 
   before(:each) do
   @user = FactoryGirl.create(:user)
+  @board = @user.boards.first
+
   login(@user)
   @pin = FactoryGirl.create(:pin)
 
@@ -10,6 +12,7 @@ end
 
 after(:each) do
   if !@user.destroyed?
+    @user.boards.destroy_all
     @user.destroy
   end
 end
@@ -142,12 +145,12 @@ end
     describe "PUT Update" do
       #with valid parameters
       before(:each) do
-        @pin = Pin.find(4)
+      #  @pin = Pin.find(4)
         @pin_hash = {
           title: "Ruby Quiz",
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
-          text: "A collection of quizzes on the Ruby programming language.",
+          text: "A collection of 10 quizzes on the Ruby programming language.",
           category_id: "1"}
       end
       it 'responds with success' do
@@ -203,6 +206,7 @@ end
       before(:each) do
         @user = FactoryGirl.create(:user)
         login(@user)
+        @boaard = @user.boards.first
         @pin = FactoryGirl.create(:pin)
       end
 

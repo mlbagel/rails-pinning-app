@@ -1,6 +1,12 @@
 
   <hr/>
   <h1>
+    <% if @board %>
+  <%= "#{@board.board.name}" %>
+  <% end %>
+</h1>
+<hr/>
+  <h1>
     <i class="fa fa-laptop"></i>
     <span style="font-variant: small-caps"><%= "#{@pin.title}" %></span>
   </h1>

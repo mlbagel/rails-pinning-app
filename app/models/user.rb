@@ -6,7 +6,7 @@ has_secure_password
 
 
 
-  has_many :pinnings
+  has_many :pinnings, dependent: :destroy
   has_many :pins, through: :pinnings
   has_many :boards
 
