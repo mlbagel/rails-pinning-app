@@ -2,13 +2,11 @@ require 'spec_helper'
 RSpec.describe PinsController do
 
   before(:each) do
-  @user = FactoryGirl.create(:user)
-  @board = @user.boards.first
-
-  login(@user)
-  @pin = FactoryGirl.create(:pin)
-
-end
+    @user = FactoryGirl.create(:user)
+    login(@user)
+    @board = @user.boards.first
+    @pin = FactoryGirl.create(:pin)
+  end
 
 after(:each) do
   if !@user.destroyed?
@@ -145,16 +143,22 @@ end
     describe "PUT Update" do
       #with valid parameters
       before(:each) do
-      #  @pin = Pin.find(4)
+        @user = FactoryGirl.create(:user)
+        login(@user)
+        @board = @user.boards.first
+
         @pin_hash = {
           title: "Ruby Quiz",
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
           text: "A collection of 10 quizzes on the Ruby programming language.",
-          category_id: "1"}
+          category_id: "1",
+           pinning: { board_id: @board.id, user_id: @user.id }
+         }
       end
       it 'responds with success' do
         put :update, id: @pin.id, pin: @pin_hash
+
         expect(response).to redirect_to("/pins/#{@pin.id}")
       end
       it 'upates a pin' do
@@ -176,24 +180,27 @@ end
       #with invalid parameters
 
       before(:each) do
-      #  @pin = Pin.find(4)
+        @pin = Pin.find(4)
         @pin_hash = {
           title: "",
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
           text: "A collection of quizzes on the Ruby programming language.",
           category_id: "1",
-        category_iiid: "2"}
+          pinning: {}
+      }
        end
 
         it "assigns an @errors instance variable" do
           put :update, id: @pin.id, pin: @pin_hash
           expect(assigns(:errors).present?).to be(true)
         end
+
         it "renders the edit view" do
           put :update, id: @pin.id, pin: @pin_hash
           expect(response).to render_template(:edit)
         end
+
         it 'redirects to Login when Logged out' do
            logout(@user)
            put :update, id: @pin.id, pin: @pin_hash
@@ -206,8 +213,9 @@ end
       before(:each) do
         @user = FactoryGirl.create(:user)
         login(@user)
-        @boaard = @user.boards.first
+        @board = @user.boards.first
         @pin = FactoryGirl.create(:pin)
+
       end
 
       after(:each) do
@@ -219,19 +227,18 @@ end
       end
 
       it 'responds with a redirect' do
-        post :repin, id: @pin.id
+        post :repin, id: @pin.id, pin: { pinning: { board_id: @board.id, user_id: @user.id } }
         expect(response.redirect?).to be(true)
 
       end
 
       it 'creates a user.pin' do
-        post :repin, id: @pin.id
-        #expect(assigns(:pin)).to equal(current_user.pin)
+        post :repin, id: @pin.id, pin: { pinning: { board_id: @board.id, user_id: @user.id } }
         expect(assigns(:pin)).to eq(Pin.find(@pin.id))
       end
 
       it 'redirects to the user show page' do
-        post :repin, id: @pin.id
+        post :repin, id: @pin.id, pin: { pinning: { board_id: @board.id, user_id: @user.id } }
         expect(response).to redirect_to(user_path(@user))
       end
 

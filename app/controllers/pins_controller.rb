@@ -28,7 +28,7 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = Pin.new(pin_params)
+    @pin = current_user.pins.new(pin_params)
     if @pin.valid?
         @pin.save
         redirect_to pin_path(@pin)
@@ -39,27 +39,29 @@ class PinsController < ApplicationController
   end
 
   def edit
-#debugger
+
     @pin = Pin.find(params[:id])
-    @boards = @pin.pinnings.find_by(params[:board_id])
+
+    @boards = @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id])
+    @boardname = @user.boards.name
+
+     #@pin.pinnings.find_by(params[:board_id])
+
+
     render :edit
   end
 
   def update
-    #debugger
     @pin = Pin.find(params[:id])
-    #@pin.pinning = current_user.pinning.find(params[:board_id])
 
-# we want the id of the pinning which the pinnings table assigned to the pinning so that we can update the correct pinning, and not move sallie's pinned hairstyle into kyle's video game board
-    @pin.pinnings.find_by(params[:board_id]).update_attribute(:board_id, params[:pin][:pinning][:board_id])
-    #@boards = @pin.pinnings.find_by(params[:board_id])
-    #@pin.pinnings.update_attribute(params[:pin][:pinning][:board_id])
-    if @pin.update(pin_params)
-      redirect_to pin_path(@pin)
-    else
-      @errors = @pin.errors
-      render :edit
-    end
+     @pin.pinnings.find_by(params[:board_id]).update_attribute(:board_id, params[:pin][:pinning][:board_id])
+
+      if @pin.update( pin_params)
+        redirect_to pin_path(@pin)
+      else
+        @errors = @pin.errors
+        render :edit
+      end
   end
 
   def repin
@@ -71,6 +73,7 @@ class PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image, :user_id, pinnings_attributes: [:user, :pin, :board])
+    #params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image, :user_id, pinnings_attributes: [:user, :pin, :board])
+    params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image, :user_id)
   end
 end

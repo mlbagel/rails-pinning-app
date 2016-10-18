@@ -1,7 +1,7 @@
 
   <hr/>
   <h1>
-    <% if @board %>
+    <% if !@board.board.nil? %>
   <%= "#{@board.board.name}" %>
   <% end %>
 </h1>
