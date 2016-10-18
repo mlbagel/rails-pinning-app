@@ -1,0 +1,9 @@
+<h1>Find People to Follow</h1>
+<% @users.each do |user| %>
+  <%= "#{user}" %>
+<% end %>
+
+
+<%= render 'form' %>
+
+<%= link_to 'Back', followers_path %>

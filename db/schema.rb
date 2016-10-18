@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003224307) do
+ActiveRecord::Schema.define(version: 20161018163126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20161003224307) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
   end
+
+  create_table "followers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "followers", ["user_id"], name: "index_followers_on_user_id", using: :btree
 
   create_table "pinnings", force: :cascade do |t|
     t.integer  "user_id"
@@ -67,6 +76,7 @@ ActiveRecord::Schema.define(version: 20161003224307) do
   end
 
   add_foreign_key "boards", "users"
+  add_foreign_key "followers", "users"
   add_foreign_key "pinnings", "pins"
   add_foreign_key "pinnings", "users"
   add_foreign_key "pins", "users"
