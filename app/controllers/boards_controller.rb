@@ -1,5 +1,5 @@
 
-
+require 'byebug'
 class BoardsController < ApplicationController
   before_action :require_login, only: [:new, :create,:show, :edit, :update, :destroy]
  before_action :set_board, only: [:show, :edit, :update, :destroy]
@@ -24,8 +24,9 @@ class BoardsController < ApplicationController
 
   # GET /boards/1/edit
   def edit
+
     @board = Board.find(params[:id])
-    @followers = current_user.user_followers
+    @followers = current_user.followers
   end
 
   # POST /boards
@@ -47,6 +48,7 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1
   # PATCH/PUT /boards/1.json
   def update
+
     respond_to do |format|
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }

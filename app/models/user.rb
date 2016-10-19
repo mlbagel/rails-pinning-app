@@ -10,6 +10,7 @@ has_secure_password
   has_many :pinnings, dependent: :destroy
   has_many :pins, through: :pinnings
   has_many :boards
+  has_many :followers
 
 
 
@@ -38,7 +39,6 @@ end
  end
 
  def user_followers
-   debugger
   self.followers.map{ |f| User.find(f.follower_id) }
 end
 

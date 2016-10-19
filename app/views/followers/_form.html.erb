@@ -21,7 +21,7 @@
       Follow!
     <% end %>
 
-    <%= f.label :user_name,  value: user_to_follow.first_name + ' ' + user_to_follow.last_name %>
+    <%= f.label :user_name,  value: user_to_follow.fullname %>
 
 
     <%= f.fields_for :boards do |board| %>

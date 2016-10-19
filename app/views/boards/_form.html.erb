@@ -11,13 +11,15 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <% if !@followers.nil? %>
   <div class="form-group">
-    <%= select_tag "board[board_pinners_attributes][0][user_id]", options_from_collection_for_select(@followers, :id, :fullname), class: "form_control", include_blank: true %>
+    <%= select_tag "board[board_pinners_attributes][0][user_id]", options_from_collection_for_select(@followers, :id, :fullname), class: "form-control", include_blank: true %>
   </div>
   <% end %>
 
-  <%= f.hidden_field :user_id, value: current_user.id %>
+
 
   <div class="field">
     <%= f.label :name %><br>
