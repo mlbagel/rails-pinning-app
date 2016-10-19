@@ -26,6 +26,10 @@
             <%= link_to "All My Pins", user_path(current_user), "role" => "menuitem", "tabindex"=> "-1" %>
           </li>
           <li role="presentation" class="divider"></li>
+          <li role="presentation">
+          <%= link_to "Create a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>
+          </li>
+          <li role="presentation" class="divider"></li>
           <% current_user.boards.each do |board| %>
           <li role="presentation">
             <%= link_to "#{board.name}", board_path(board.id), "role" => "menuitem", "tabindex"=> "-1" %>
@@ -37,7 +41,11 @@
           </li>
           <li role="presentation" class="divider"></li>
           <li role="presentation">
-          <%= link_to "Create a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>
+          <%= link_to "Followers", followers_path, "role" => "menuitem", "tabindex" => "-1" %>
+          </li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation">
+          <%= link_to "Add a Follower", new_follower_path, "role" => "menuitem", "tabindex"=> "-1" %>
           </li>
           <li role="presentation" class="divider"></li>
           <li role="presentation">

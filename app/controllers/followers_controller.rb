@@ -1,28 +1,18 @@
 require 'byebug'
 class FollowersController < ApplicationController
-  before_action :set_follower, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index, :new, :create, :destroy]
 
   # GET /followers
   # GET /followers.json
   def index
     @followers = Follower.all
-  end
-
-  # GET /followers/1
-  # GET /followers/1.json
-  def show
+    @followed = current_user.followed
   end
 
   # GET /followers/new
   def new
-    debugger
-
     @follower = Follower.new
     @users = current_user.not_followed
-  end
-
-  # GET /followers/1/edit
-  def edit
   end
 
   # POST /followers
@@ -32,24 +22,11 @@ class FollowersController < ApplicationController
 
     respond_to do |format|
       if @follower.save
-        format.html { redirect_to @follower, notice: 'Follower was successfully created.' }
+        @followed = current_user.followed
+        format.html { redirect_to followers_path, notice: 'Follower was successfully created.' }
         format.json { render :show, status: :created, location: @follower }
       else
         format.html { render :new }
-        format.json { render json: @follower.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /followers/1
-  # PATCH/PUT /followers/1.json
-  def update
-    respond_to do |format|
-      if @follower.update(follower_params)
-        format.html { redirect_to @follower, notice: 'Follower was successfully updated.' }
-        format.json { render :show, status: :ok, location: @follower }
-      else
-        format.html { render :edit }
         format.json { render json: @follower.errors, status: :unprocessable_entity }
       end
     end
@@ -65,13 +42,6 @@ class FollowersController < ApplicationController
     end
   end
 
-  def followed
-    Follower.where("follower_id=?", self.id).map{|f| f.user}
-  end
-
-  def not_followed
-    User.all - self.followed - [self]
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

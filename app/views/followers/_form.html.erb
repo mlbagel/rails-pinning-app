@@ -1,4 +1,4 @@
-<%= form_for(@follower) do |f| %>
+
   <% if @follower.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@follower.errors.count, "error") %> prohibited this follower from being saved:</h2>
@@ -11,15 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :follower_id %><br>
-    <%= f.number_field :follower_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= form_for @follower, html: {class: "well"} do |f| %>
+    <%= f.hidden_field :user_id, value: user_to_follow.id %>
+    <%= f.hidden_field :follower_id, value: current_user.id %>
+
+
+    <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
+      <i class="fa fa-users"></i>
+      Follow!
+    <% end %>
+
+    <%= f.label :user_name,  value: user_to_follow.first_name + ' ' + user_to_follow.last_name %>
+
+
+    <%= f.fields_for :boards do |board| %>
+      <div class="text-right">
+          <label>Boards</label>
+      </div>
+      <div class="form-group">
+          <%= board.collection_select(:board_id, user_to_follow.boards, :id, :name, {}, {class: "form-control"}) %>
+        </div>
+    <% end %>
+  <% end %>
