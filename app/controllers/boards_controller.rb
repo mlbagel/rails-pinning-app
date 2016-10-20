@@ -1,13 +1,13 @@
 
 require 'byebug'
 class BoardsController < ApplicationController
-  before_action :require_login, only: [:new, :create,:show, :edit, :update, :destroy]
- before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+ #before_action :set_board, only: [:show, :edit, :update, :destroy]
 
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    @boards = current_user.pinnable_boards
   end
 
   # GET /boards/1
@@ -22,12 +22,6 @@ class BoardsController < ApplicationController
     @board = Board.new
   end
 
-  # GET /boards/1/edit
-  def edit
-
-    @board = Board.find(params[:id])
-    @followers = current_user.followers
-  end
 
   # POST /boards
   # POST /boards.json
@@ -45,10 +39,19 @@ class BoardsController < ApplicationController
     end
   end
 
+
+    # GET /boards/1/edit
+    def edit
+
+      @board = Board.find(params[:id])
+      @followers = current_user.user_followers
+      #@followers = current_user.board_pinners
+    end
+
   # PATCH/PUT /boards/1
   # PATCH/PUT /boards/1.json
   def update
-
+    @board = Board.find(params[:id])
     respond_to do |format|
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }

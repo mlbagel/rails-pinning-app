@@ -18,6 +18,12 @@
         </button>
 
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownmenu1">
+
+          <li role="presentation" class="text-center"><u><strong>
+            <%= "Pins" %>
+          </strong></u>
+          </li>
+          <li role="presentation" class="divider"></li>
           <li role="presentation">
             <%= link_to "All Pins : Home Page", root_path, "role" => "menuitem", "tabindex" => "-1" %>
           </li>
@@ -30,6 +36,15 @@
           <%= link_to "Create a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>
           </li>
           <li role="presentation" class="divider"></li>
+          <li role="presentation" class="text-center"><u><strong>
+            <%= "Boards" %>
+          </strong></u>
+          </li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation">
+          <%= link_to "All Boards", boards_path, "role" => "menuitem", "tabindex"=> "-1" %>
+          </li>
+          <li role="presentation"  class="divider"></li>
           <% current_user.boards.each do |board| %>
           <li role="presentation">
             <%= link_to "#{board.name}", board_path(board.id), "role" => "menuitem", "tabindex"=> "-1" %>
@@ -40,6 +55,11 @@
           <%= link_to "Add a Board", new_board_path, "role" => "menuitem", "tabindex"=> "-1" %>
           </li>
           <li role="presentation" class="divider"></li>
+          <li role="presentation" class="text-center"><u><strong>
+            <%= "Followers" %>
+          </strong></u>
+          </li>
+          <li role="presentation" class="divider"></li>
           <li role="presentation">
           <%= link_to "Followers", followers_path, "role" => "menuitem", "tabindex" => "-1" %>
           </li>
@@ -48,8 +68,8 @@
           <%= link_to "Add a Follower", new_follower_path, "role" => "menuitem", "tabindex"=> "-1" %>
           </li>
           <li role="presentation" class="divider"></li>
-          <li role="presentation">
-            <%= link_to "Logout", logout_path(current_user), :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
+          <li role="presentation" class="text-center">
+            <strong><%= link_to "Logout", logout_path(current_user), :method => :delete, "role" => "menuitem", "tabindex" => "-1" %></strong>
           </li>
         </ul>
     </div>

@@ -1,8 +1,9 @@
 require 'spec_helper'
+require 'byebug'
 RSpec.describe PinsController do
 
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:user_with_boards)
     login(@user)
     @board = @user.boards.first
     @pin = FactoryGirl.create(:pin)
@@ -141,6 +142,7 @@ end
     end
 
     describe "PUT Update" do
+    
       #with valid parameters
       before(:each) do
         @user = FactoryGirl.create(:user)

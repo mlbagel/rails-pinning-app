@@ -5,13 +5,12 @@ has_secure_password
   validates_presence_of :first_name, :last_name, :email, :password
   validates_uniqueness_of :email
 
-
-
   has_many :pinnings, dependent: :destroy
   has_many :pins, through: :pinnings
   has_many :boards
-  has_many :followers
-
+  has_many :board_pinners
+  has_many :followers,
+   dependent: :destroy
 
 
   def self.authenticate(email, password)
@@ -40,6 +39,10 @@ end
 
  def user_followers
   self.followers.map{ |f| User.find(f.follower_id) }
+end
+
+def pinnable_boards
+  self.boards + self.board_pinners.map{ |bp| bp.board }
 end
 
 end

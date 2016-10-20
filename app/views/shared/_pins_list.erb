@@ -2,7 +2,7 @@
   <% @pins.each_slice(3) do |row| %>
     <div class="row">
       <% row.each do |pin| %>
-        <div class="pin-container col-md-4">
+        <div class="pin-container col-md-4 text-overflow">
           <div class="pin">
             <div class="pin-header row">
               <div class="logo-thumbnail col-xs-3">
@@ -23,9 +23,7 @@
             </div>
             <hr/>
             <p class="text"><%= "#{pin.text}" %></p>
-            <%= pin.pinnings.inspect %>
           <%= render partial: "shared/repin_form", locals: {pin: pin} %>
-          
             <hr/>
             <%= link_to "edit", edit_pin_path(id: pin.id) %>
           </div>

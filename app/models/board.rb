@@ -6,6 +6,4 @@ class Board < ActiveRecord::Base
   has_many :pins, through: :pinnings
   has_many :board_pinners
   accepts_nested_attributes_for :board_pinners
-
-
 end
