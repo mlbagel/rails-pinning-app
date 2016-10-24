@@ -4,8 +4,9 @@ RSpec.describe PinsController do
 
   before(:each) do
     @user = FactoryGirl.create(:user_with_boards)
-    login(@user)
     @board = @user.boards.first
+    login(@user)
+
     @pin = FactoryGirl.create(:pin)
   end
 
@@ -142,20 +143,24 @@ end
     end
 
     describe "PUT Update" do
-    
+    require 'byebug'
+
+
       #with valid parameters
       before(:each) do
         @user = FactoryGirl.create(:user)
-        login(@user)
         @board = @user.boards.first
+        login(@user)
+
+debugger
 
         @pin_hash = {
           title: "Ruby Quiz",
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
           text: "A collection of 10 quizzes on the Ruby programming language.",
-          category_id: "1",
-           pinning: { board_id: @board.id, user_id: @user.id }
+          category_id: "1"
+           #pinning: { board_id: @board.id, user_id: @user.id }
          }
       end
       it 'responds with success' do
@@ -182,14 +187,14 @@ end
       #with invalid parameters
 
       before(:each) do
-        @pin = Pin.find(4)
+      #  @pin = Pin.find(4)
         @pin_hash = {
           title: "",
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
           text: "A collection of quizzes on the Ruby programming language.",
-          category_id: "1",
-          pinning: {}
+          category_id: "1"
+        #  pinning: {board_id: @board.id, user_id: @user.id}
       }
        end
 
@@ -214,8 +219,9 @@ end
     describe "POST repin" do
       before(:each) do
         @user = FactoryGirl.create(:user)
-        login(@user)
         @board = @user.boards.first
+        login(@user)
+
         @pin = FactoryGirl.create(:pin)
 
       end

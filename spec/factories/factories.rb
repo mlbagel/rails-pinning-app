@@ -35,6 +35,7 @@ FactoryGirl.define do
     end
   end
 end
+
   factory :user_with_followees do
     after(:create) do |user|
       3.times do

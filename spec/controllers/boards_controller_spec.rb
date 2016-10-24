@@ -5,6 +5,7 @@ RSpec.describe BoardsController do
   @user = FactoryGirl.create(:user_with_boards)
   @board = @user.boards.first
   login(@user)
+
   @pin = FactoryGirl.create(:pin)
 
 end
