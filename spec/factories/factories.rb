@@ -9,11 +9,12 @@ FactoryGirl.define do
   end
 
   factory :pin do
-    title "Rails Cheatsheet"
+    title "Rails 2222 Cheatsheet"
     url "http://rails-cheat.com"
     text "A great tool for beginning developers"
     slug
     category
+    user
   end
 
   factory :board do
@@ -46,8 +47,9 @@ end
 
 
   factory :pinning do
-    pin
     user
+    pin
+    board
   end
 
 

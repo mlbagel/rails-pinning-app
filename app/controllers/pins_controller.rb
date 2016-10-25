@@ -41,20 +41,17 @@ class PinsController < ApplicationController
   def edit
 
     @pin = Pin.find(params[:id])
-
-    @boards = @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id])
+    @boards = @pin.pinnings.find_by(params[board_id: @user.boards.ids, user_id: @user.id])
     @boardname = @user.boards.name
-
-     #@pin.pinnings.find_by(params[:board_id])
-
-
     render :edit
   end
 
   def update
+    debugger
     @pin = Pin.find(params[:id])
 
-     @pin.pinnings.find_by(params[:board_id]).update_attribute(:board_id, params[:pin][:pinning][:board_id])
+
+     @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id]).update_attribute(:board_id, params[:pin][:pinning][:board_id])
 
       if @pin.update( pin_params)
         redirect_to pin_path(@pin)
@@ -66,6 +63,7 @@ class PinsController < ApplicationController
 
   def repin
     @pin = Pin.find(params[:id])
+
     @pin.pinnings.create(user: current_user, board_id: params[:pin][:pinning][:board_id])
     redirect_to user_path(current_user)
   end

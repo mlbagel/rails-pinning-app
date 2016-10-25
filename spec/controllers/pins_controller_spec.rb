@@ -135,6 +135,7 @@ end
         get :edit, id: @pin.id
         expect(assigns(:pin)).to eq(@pin)
       end
+
       it 'redirects to Login when Logged out' do
          logout(@user)
          get :edit, id: @pin.id
@@ -148,24 +149,22 @@ end
 
       #with valid parameters
       before(:each) do
-        @user = FactoryGirl.create(:user)
+        @user = FactoryGirl.create(:user_with_boards)
         @board = @user.boards.first
         login(@user)
-
-debugger
 
         @pin_hash = {
           title: "Ruby Quiz",
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
-          text: "A collection of 10 quizzes on the Ruby programming language.",
-          category_id: "1"
-           #pinning: { board_id: @board.id, user_id: @user.id }
+          text: "A 22222 collection of 10 quizzes on the Ruby programming language.",
+          category_id: "1",
+           pinning: { board_id: @board.id, user_id: @user.id }
          }
       end
+
       it 'responds with success' do
         put :update, id: @pin.id, pin: @pin_hash
-
         expect(response).to redirect_to("/pins/#{@pin.id}")
       end
       it 'upates a pin' do
@@ -193,8 +192,8 @@ debugger
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
           text: "A collection of quizzes on the Ruby programming language.",
-          category_id: "1"
-        #  pinning: {board_id: @board.id, user_id: @user.id}
+          category_id: "1",
+         pinning: {board_id: @board.id, user_id: @user.id}
       }
        end
 
@@ -218,7 +217,7 @@ debugger
 
     describe "POST repin" do
       before(:each) do
-        @user = FactoryGirl.create(:user)
+        @user = FactoryGirl.create(:user_with_boards)
         @board = @user.boards.first
         login(@user)
 

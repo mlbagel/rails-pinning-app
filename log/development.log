@@ -882,3 +882,1370 @@ Processing by BoardsController#show as HTML
   Rendered shared/_pins_list.erb (11.7ms)
   Rendered boards/show.html.erb within layouts/application (13.9ms)
 Completed 200 OK in 76ms (Views: 69.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2016-10-25 09:54:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Pin> at /Users/Michelle/Desktop/ruby/rails-pinning-app/app/models/pin.rb:14)
+  [1m[36mPin Load (2.2ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  [1m[35mCategory Load (1.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.8ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (1.5ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (36.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (4.1ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (23.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (6.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (16.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (3.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (4.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (5.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (6.8ms)
+  Rendered shared/_pins_list.erb (454.9ms)
+  Rendered pins/index.erb within layouts/application (459.3ms)
+Completed 200 OK in 626ms (Views: 554.6ms | ActiveRecord: 33.4ms)
+
+
+Started GET "/pins/11/edit" for ::1 at 2016-10-25 09:54:49 -0400
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (1.0ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.2ms)[0m  SELECT "boards"."id" FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  [1m[36mPinning Load (1.5ms)[0m  [1mSELECT  "pinnings".* FROM "pinnings" WHERE "pinnings"."pin_id" = $1 LIMIT 1[0m  [["pin_id", 11]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered pins/_form.erb (18.4ms)
+  Rendered pins/edit.erb within layouts/application (20.9ms)
+Completed 200 OK in 79ms (Views: 40.8ms | ActiveRecord: 7.0ms)
+
+
+Started PATCH "/pins/11" for ::1 at 2016-10-25 09:54:54 -0400
+Processing by PinsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"38BTEc9F5WPLU2QOQmazjHtCyj5DkwRqTXarQFwVF45qBM5NR580bubM/7to0SyFPLcsQyXEOlsgzFdFhWEOzA==", "pin"=>{"user_id"=>"25", "title"=>"Listings", "category_id"=>"3", "url"=>"http://www.royallepage.ca/", "slug"=>"Royal Lepage", "text"=>"Website for Home listings", "pinning"=>{"board_id"=>"39", "user_id"=>"25"}}, "commit"=>"submit", "id"=>"11"}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (1.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.4ms)[0m  [1mSELECT "boards"."id" FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mPinning Load (0.6ms)[0m  SELECT  "pinnings".* FROM "pinnings" WHERE "pinnings"."pin_id" = $1 LIMIT 1  [["pin_id", 11]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (23.6ms)[0m  UPDATE "pinnings" SET "board_id" = $1, "updated_at" = $2 WHERE "pinnings"."id" = $3  [["board_id", 39], ["updated_at", "2016-10-25 13:55:04.672264"], ["id", 106]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Unpermitted parameter: pinning
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mPin Exists (3.8ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'Royal Lepage' AND "pins"."id" != 11) LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "pins" SET "user_id" = $1 WHERE "pins"."id" = $2  [["user_id", 25], ["id", 11]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/pins/11
+Completed 302 Found in 9899ms (ActiveRecord: 35.5ms)
+
+
+Started GET "/pins/11" for ::1 at 2016-10-25 09:55:04 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPinning Load (0.4ms)[0m  SELECT  "pinnings".* FROM "pinnings" WHERE "pinnings"."pin_id" = $1 LIMIT 1  [["pin_id", 11]]
+  [1m[36mBoard Load (0.5ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (4.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "pinnings" ON "users"."id" = "pinnings"."user_id" WHERE "pinnings"."pin_id" = $1  [["pin_id", 11]]
+  Rendered pins/show.erb within layouts/application (12.9ms)
+Completed 200 OK in 63ms (Views: 43.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/boards/38" for ::1 at 2016-10-25 09:55:17 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (1.5ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 25], ["id", 38]]
+  [1m[36mPin Load (0.5ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 38]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (7.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.5ms)
+  Rendered shared/_pins_list.erb (31.1ms)
+  Rendered boards/show.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 84ms (Views: 70.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 09:55:25 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.8ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 39]]
+  [1m[35mPin Load (0.8ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 39]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.6ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (21.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.2ms)
+  Rendered shared/_pins_list.erb (35.7ms)
+  Rendered boards/show.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 69ms (Views: 59.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2016-10-25 09:55:30 -0400
+Processing by PinsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.5ms)[0m  SELECT "pins".* FROM "pins"
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.4ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.5ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (10.1ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (6.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (3.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (3.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (4.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (5.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (4.0ms)
+  Rendered shared/_pins_list.erb (151.6ms)
+  Rendered pins/index.erb within layouts/application (153.2ms)
+Completed 200 OK in 182ms (Views: 175.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/rails/info" for ::1 at 2016-10-25 09:56:43 -0400
+Processing by Rails::InfoController#index as HTML
+Redirected to http://localhost:3000/rails/info/routes
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2016-10-25 09:56:43 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/railties-4.2.0/lib/rails/templates/rails/info/routes.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 22ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pins/repin/18" for ::1 at 2016-10-25 09:58:13 -0400
+Processing by PinsController#repin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XDLeFO4q1w2iDDPXBdkBPW9gzyr8Vd5WmgznA2wB5Q/p9kNIZvAGAI+TqGIvbp40KJUpV5oC4Gf3thsGtXX8TQ==", "pin"=>{"pinning"=>{"board_id"=>"39", "user_id"=>"25"}}, "button"=>"", "id"=>"18"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.4ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "pinnings" ("user_id", "board_id", "pin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 25], ["board_id", 39], ["pin_id", 18], ["created_at", "2016-10-25 13:58:13.113886"], ["updated_at", "2016-10-25 13:58:13.113886"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/25
+Completed 302 Found in 11ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/users/25" for ::1 at 2016-10-25 09:58:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.5ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.4ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (4.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.8ms)
+  Rendered shared/_pins_list.erb (26.3ms)
+  Rendered users/show.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 50ms (Views: 46.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:01:01 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.6ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 39]]
+  [1m[35mPin Load (0.8ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 39]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (4.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.0ms)
+  Rendered shared/_pins_list.erb (29.5ms)
+  Rendered boards/show.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 65ms (Views: 57.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/boards/38" for ::1 at 2016-10-25 10:01:06 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (1.0ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 38]]
+  [1m[35mPin Load (0.8ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 38]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (1.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (6.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.3ms)
+  Rendered shared/_pins_list.erb (46.7ms)
+  Rendered boards/show.html.erb within layouts/application (48.6ms)
+Completed 200 OK in 78ms (Views: 68.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:01:12 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (3.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 25], ["id", 39]]
+  [1m[36mPin Load (1.6ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 39]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.8ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.7ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (10.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.9ms)
+  Rendered shared/_pins_list.erb (59.3ms)
+  Rendered boards/show.html.erb within layouts/application (61.5ms)
+Completed 200 OK in 104ms (Views: 87.4ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/pins/18/edit" for ::1 at 2016-10-25 10:01:14 -0400
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.4ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36m (2.8ms)[0m  [1mSELECT "boards"."id" FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mPinning Load (1.4ms)[0m  SELECT  "pinnings".* FROM "pinnings" WHERE "pinnings"."pin_id" = $1 LIMIT 1  [["pin_id", 18]]
+  [1m[36mCategory Load (5.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mBoardPinner Load (0.8ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered pins/_form.erb (18.3ms)
+  Rendered pins/edit.erb within layouts/application (20.2ms)
+Completed 200 OK in 69ms (Views: 45.9ms | ActiveRecord: 11.9ms)
+
+
+Started PATCH "/pins/18" for ::1 at 2016-10-25 10:01:19 -0400
+Processing by PinsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DEIMkK8PVWDBVGx3TlcR+hi/H3Sz7gKbVy/qTLR0YyG5hpHMJ9WEbezL98Jk4I7zX0r5CdW5PKo6lRZJbQB6Yw==", "pin"=>{"user_id"=>"25", "title"=>"Bethany CRC church", "category_id"=>"3", "url"=>"http://www.bethanycrc.ca/", "slug"=>"Bethany CRC", "text"=>"Local church in Pelham Ontario", "pinning"=>{"board_id"=>"38", "user_id"=>"25"}}, "commit"=>"submit", "id"=>"18"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.8ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35m (0.4ms)[0m  SELECT "boards"."id" FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  [1m[36mPinning Load (0.4ms)[0m  [1mSELECT  "pinnings".* FROM "pinnings" WHERE "pinnings"."pin_id" = $1 LIMIT 1[0m  [["pin_id", 18]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "pinnings" SET "board_id" = $1, "updated_at" = $2 WHERE "pinnings"."id" = $3[0m  [["board_id", 38], ["updated_at", "2016-10-25 14:01:25.903618"], ["id", 113]]
+  [1m[35m (6.5ms)[0m  COMMIT
+Unpermitted parameter: pinning
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE ("pins"."slug" = 'Bethany CRC' AND "pins"."id" != 18) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "pins" SET "user_id" = $1 WHERE "pins"."id" = $2[0m  [["user_id", 25], ["id", 18]]
+  [1m[35m (5.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/pins/18
+Completed 302 Found in 6695ms (ActiveRecord: 15.8ms)
+
+
+Started GET "/pins/18" for ::1 at 2016-10-25 10:01:25 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPinning Load (0.6ms)[0m  [1mSELECT  "pinnings".* FROM "pinnings" WHERE "pinnings"."pin_id" = $1 LIMIT 1[0m  [["pin_id", 18]]
+  [1m[35mBoard Load (0.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 39]]
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (4.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "pinnings" ON "users"."id" = "pinnings"."user_id" WHERE "pinnings"."pin_id" = $1[0m  [["pin_id", 18]]
+  Rendered pins/show.erb within layouts/application (8.1ms)
+Completed 200 OK in 41ms (Views: 33.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:01:52 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.9ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 39]]
+  [1m[35mPin Load (2.3ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 39]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.6ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (14.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.6ms)
+  Rendered shared/_pins_list.erb (36.5ms)
+  Rendered boards/show.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 80ms (Views: 69.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/boards/38" for ::1 at 2016-10-25 10:01:57 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 38]]
+  [1m[35mPin Load (1.9ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 38]]
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.4ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.5ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (14.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  Rendered shared/_pins_list.erb (49.7ms)
+  Rendered boards/show.html.erb within layouts/application (51.9ms)
+Completed 200 OK in 93ms (Views: 80.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/pins/18/edit" for ::1 at 2016-10-25 10:02:24 -0400
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35m (0.5ms)[0m  SELECT "boards"."id" FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  [1m[36mPinning Load (1.6ms)[0m  [1mSELECT  "pinnings".* FROM "pinnings" WHERE "pinnings"."pin_id" = $1 LIMIT 1[0m  [["pin_id", 18]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.9ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered pins/_form.erb (13.5ms)
+  Rendered pins/edit.erb within layouts/application (15.9ms)
+Completed 200 OK in 50ms (Views: 39.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users/25" for ::1 at 2016-10-25 10:02:30 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (1.7ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1  [["user_id", 25]]
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (1.2ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.8ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (13.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (5.5ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.2ms)
+  Rendered shared/_pins_list.erb (47.7ms)
+  Rendered users/show.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 83ms (Views: 72.8ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:02:41 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.8ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 25], ["id", 39]]
+  [1m[36mPin Load (1.3ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 39]]
+  [1m[35mCategory Load (1.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (25.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (6.4ms)
+  Rendered shared/_pins_list.erb (58.6ms)
+  Rendered boards/show.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 100ms (Views: 86.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/boards/38" for ::1 at 2016-10-25 10:02:49 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 25], ["id", 38]]
+  [1m[36mPin Load (3.0ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 38]]
+  [1m[35mCategory Load (0.6ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (1.1ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (3.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (15.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.9ms)
+  Rendered shared/_pins_list.erb (65.6ms)
+  Rendered boards/show.html.erb within layouts/application (67.8ms)
+Completed 200 OK in 110ms (Views: 93.5ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:08:00 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.6ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 25], ["id", 39]]
+  [1m[36mPin Load (1.6ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 39]]
+  [1m[35mCategory Load (1.6ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (2.2ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (9.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (5.1ms)
+  Rendered shared/_pins_list.erb (35.2ms)
+  Rendered boards/show.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 69ms (Views: 55.6ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/boards/39/edit" for ::1 at 2016-10-25 10:08:09 -0400
+Processing by BoardsController#edit as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.3ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 39]]
+  [1m[36mFollower Load (3.9ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE "followers"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered boards/_form.html.erb (10.8ms)
+  Rendered boards/edit.html.erb within layouts/application (13.8ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 55ms (Views: 37.0ms | ActiveRecord: 6.4ms)
+
+
+Started PATCH "/boards/39" for ::1 at 2016-10-25 10:08:28 -0400
+Processing by BoardsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wuu2Tal1eQy6h20z06flhwriEgR8/ZqPlOYkkSJWmtN3LysRIa+oAZcY9ob5EHqOTRf0eRqqpL75XNiU+yKDkQ==", "board"=>{"user_id"=>"25", "board_pinners_attributes"=>{"0"=>{"user_id"=>""}}, "name"=>"math"}, "commit"=>"Update Board", "id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 39]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "board_pinners" ("board_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["board_id", 39], ["created_at", "2016-10-25 14:08:28.852868"], ["updated_at", "2016-10-25 14:08:28.852868"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/boards/39
+Completed 302 Found in 25ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:08:28 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 39]]
+  [1m[35mPin Load (0.3ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 39]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.8ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (9.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (5.3ms)
+  Rendered shared/_pins_list.erb (26.4ms)
+  Rendered boards/show.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 63ms (Views: 53.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/followers/new" for ::1 at 2016-10-25 10:08:39 -0400
+Processing by FollowersController#new as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFollower Load (1.0ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE (follower_id=25)[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered followers/_form.html.erb (6.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 2]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered followers/_form.html.erb (3.4ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 6]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 5]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 4]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered followers/_form.html.erb (2.8ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 8]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 10]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 11]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 12]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 13]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 14]]
+  Rendered followers/_form.html.erb (3.1ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 15]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 16]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 17]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 18]]
+  Rendered followers/_form.html.erb (3.2ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 19]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 20]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 21]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 22]]
+  Rendered followers/_form.html.erb (3.4ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 23]]
+  Rendered followers/_form.html.erb (2.8ms)
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 24]]
+  Rendered followers/_form.html.erb (2.9ms)
+  Rendered followers/new.html.erb within layouts/application (98.7ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 146ms (Views: 124.1ms | ActiveRecord: 10.8ms)
+
+
+Started POST "/followers" for ::1 at 2016-10-25 10:08:45 -0400
+Processing by FollowersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XeaHgBO+XwdGK4jnjLVZLTJLGFmteZA1nDUZCn9q0kroIhrcm2SOCmu0E1KmAsYkdb7+JMsurgTxj+UPph7LCA==", "follower"=>{"user_id"=>"2", "follower_id"=>"25", "boards"=>{"board_id"=>"2"}}, "button"=>""}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+Unpermitted parameter: boards
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "followers" ("user_id", "follower_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 2], ["follower_id", 25], ["created_at", "2016-10-25 14:08:45.082856"], ["updated_at", "2016-10-25 14:08:45.082856"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mFollower Load (0.3ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=25)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/followers
+Completed 302 Found in 11ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/followers" for ::1 at 2016-10-25 10:08:45 -0400
+Processing by FollowersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFollower Load (0.3ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE (follower_id=25)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered followers/index.html.erb within layouts/application (2.8ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/followers/new" for ::1 at 2016-10-25 10:08:50 -0400
+Processing by FollowersController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFollower Load (0.4ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=25)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mBoard Load (0.6ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered followers/_form.html.erb (6.2ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 3]]
+  Rendered followers/_form.html.erb (3.8ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 6]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 5]]
+  Rendered followers/_form.html.erb (4.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 4]]
+  Rendered followers/_form.html.erb (3.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 7]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[36mBoard Load (0.6ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered followers/_form.html.erb (4.2ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 9]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+  Rendered followers/_form.html.erb (3.4ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 12]]
+  Rendered followers/_form.html.erb (3.3ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 13]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 14]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 15]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 16]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 17]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered followers/_form.html.erb (2.8ms)
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 19]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 20]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 21]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 22]]
+  Rendered followers/_form.html.erb (3.1ms)
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 23]]
+  Rendered followers/_form.html.erb (3.1ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 24]]
+  Rendered followers/_form.html.erb (2.5ms)
+  Rendered followers/new.html.erb within layouts/application (98.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 130ms (Views: 114.2ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/followers" for ::1 at 2016-10-25 10:08:55 -0400
+Processing by FollowersController#index as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFollower Load (1.3ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=25)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mBoard Load (1.5ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 2]]
+  Rendered followers/index.html.erb within layouts/application (4.0ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 65ms (Views: 52.6ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/followers/new" for ::1 at 2016-10-25 10:09:03 -0400
+Processing by FollowersController#new as HTML
+  [1m[35mUser Load (4.1ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFollower Load (1.0ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE (follower_id=25)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 1]]
+  Rendered followers/_form.html.erb (21.4ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered followers/_form.html.erb (9.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 6]]
+  Rendered followers/_form.html.erb (5.1ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 5]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 4]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered followers/_form.html.erb (3.5ms)
+  [1m[35mBoard Load (0.6ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 8]]
+  Rendered followers/_form.html.erb (5.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 10]]
+  Rendered followers/_form.html.erb (2.8ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 11]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 12]]
+  Rendered followers/_form.html.erb (2.8ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 13]]
+  Rendered followers/_form.html.erb (3.1ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 14]]
+  Rendered followers/_form.html.erb (3.1ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 15]]
+  Rendered followers/_form.html.erb (3.2ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 16]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 17]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 18]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 19]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 20]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 21]]
+  Rendered followers/_form.html.erb (2.8ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 22]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 23]]
+  Rendered followers/_form.html.erb (9.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 24]]
+  Rendered followers/_form.html.erb (2.6ms)
+  Rendered followers/new.html.erb within layouts/application (130.2ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 167ms (Views: 145.3ms | ActiveRecord: 13.5ms)
+
+
+Started POST "/followers" for ::1 at 2016-10-25 10:09:11 -0400
+Processing by FollowersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B3HlCYnRlnws+tWeb47P5bqt1ssSwOcymEs6cC7c/j6ytXhVAQtHcQFlTitFOVDs/VgwtnSX2QP18cZ196jnfA==", "follower"=>{"user_id"=>"11", "follower_id"=>"25", "boards"=>{"board_id"=>"11"}}, "button"=>""}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+Unpermitted parameter: boards
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "followers" ("user_id", "follower_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 11], ["follower_id", 25], ["created_at", "2016-10-25 14:09:11.340758"], ["updated_at", "2016-10-25 14:09:11.340758"]]
+  [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mFollower Load (0.3ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=25)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+Redirected to http://localhost:3000/followers
+Completed 302 Found in 13ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/followers" for ::1 at 2016-10-25 10:09:11 -0400
+Processing by FollowersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFollower Load (0.4ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=25)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+  Rendered followers/index.html.erb within layouts/application (2.4ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 27ms (Views: 22.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/followers" for ::1 at 2016-10-25 10:09:16 -0400
+Processing by FollowersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFollower Load (0.5ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE (follower_id=25)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mBoard Load (1.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 2]]
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 11]]
+  Rendered followers/index.html.erb within layouts/application (6.1ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 41ms (Views: 32.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/boards" for ::1 at 2016-10-25 10:09:21 -0400
+Processing by BoardsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered boards/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 40ms (Views: 32.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/boards/38" for ::1 at 2016-10-25 10:09:28 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.5ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 38]]
+  [1m[35mPin Load (0.5ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 38]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (5.9ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  Rendered shared/_pins_list.erb (37.8ms)
+  Rendered boards/show.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 71ms (Views: 63.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/boards/38/edit" for ::1 at 2016-10-25 10:09:33 -0400
+Processing by BoardsController#edit as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.6ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 38]]
+  [1m[35mFollower Load (0.4ms)[0m  SELECT "followers".* FROM "followers" WHERE "followers"."user_id" = $1  [["user_id", 25]]
+  Rendered boards/_form.html.erb (3.3ms)
+  Rendered boards/edit.html.erb within layouts/application (5.6ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 42ms (Views: 35.0ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/logout/25" for ::1 at 2016-10-25 10:09:53 -0400
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"1z550JG4X+vDS8C4Cf+tI0c2G3eEKUxxyrg6AyBNndJi+uSMGWKO5u7UWw0jSDIqAMP9CuJ+ckCnAsYG+TmEkA==", "id"=>"25"}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-10-25 10:09:53 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2016-10-25 10:10:19 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YgWOsZXWNqJRowWyG4oUWfMIMV7Wk9RDAE3l1SkzQJHXwRPtHQznr3w8ngcxPYtQtP3XI7DE6nJt9xnQ8EdZ0w==", "email"=>"Natalie@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "Natalie@gmail.com"]]
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 67ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/11" for ::1 at 2016-10-25 10:10:19 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=11)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.5ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 11]]
+  Rendered shared/_pins_list.erb (1.5ms)
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/followers/new" for ::1 at 2016-10-25 10:10:24 -0400
+Processing by FollowersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=11)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFollower Load (0.6ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=11)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mBoard Load (1.1ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 1]]
+  Rendered followers/_form.html.erb (8.3ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered followers/_form.html.erb (3.3ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 3]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 6]]
+  Rendered followers/_form.html.erb (3.4ms)
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 5]]
+  Rendered followers/_form.html.erb (2.8ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 4]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 7]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered followers/_form.html.erb (3.4ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 9]]
+  Rendered followers/_form.html.erb (3.1ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered followers/_form.html.erb (3.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 12]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 13]]
+  Rendered followers/_form.html.erb (3.5ms)
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 14]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 15]]
+  Rendered followers/_form.html.erb (2.9ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 16]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 17]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 18]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 19]]
+  Rendered followers/_form.html.erb (2.5ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 20]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 21]]
+  Rendered followers/_form.html.erb (2.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 22]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 23]]
+  Rendered followers/_form.html.erb (2.7ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 24]]
+  Rendered followers/_form.html.erb (2.4ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered followers/_form.html.erb (2.6ms)
+  Rendered followers/new.html.erb within layouts/application (99.0ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+Completed 200 OK in 129ms (Views: 112.1ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/followers" for ::1 at 2016-10-25 10:10:30 -0400
+Processing by FollowersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JlodDpp6VPJdJnuziDZ/IkOquS3jc9OOstW4TXepMI+TnoBSEqCF/3C54AaigeArBF9fUIUk7b/fb0RIrt0pzQ==", "follower"=>{"user_id"=>"25", "follower_id"=>"11", "boards"=>{"board_id"=>"38"}}, "button"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=11)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Unpermitted parameter: boards
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "followers" ("user_id", "follower_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 25], ["follower_id", 11], ["created_at", "2016-10-25 14:10:30.024015"], ["updated_at", "2016-10-25 14:10:30.024015"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36mFollower Load (0.3ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE (follower_id=11)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 25]]
+Redirected to http://localhost:3000/followers
+Completed 302 Found in 8ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/followers" for ::1 at 2016-10-25 10:10:30 -0400
+Processing by FollowersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=11)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFollower Load (0.3ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=11)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 25]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered followers/index.html.erb within layouts/application (1.7ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 11]]
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/logout/11" for ::1 at 2016-10-25 10:10:36 -0400
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"hPktGG/NwEY0qixzZuDj/RUKWE3WFOSLv8f4J+rFY3UxPbBE5xcRSxk1t8ZMV3z0Uv++MLBD2rrSfQQiM7F6Nw==", "id"=>"11"}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-10-25 10:10:36 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2016-10-25 10:10:45 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WXN2HDxVWWuHsrRzTZom0pkaHVo+6s5KT4X3HYAnOYPst+tAtI+IZqotL8ZnLbnb3u/7J1i98HsiPwsYWVMgwQ==", "email"=>"kyle@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "kyle@gmail.com"]]
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 90ms (Views: 20.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for ::1 at 2016-10-25 10:11:09 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VAq9IvQ8Bk+X/+RuQE7dlZDII5wtzxricSTOGQxtCW/hziB+fObXQrpgf9tq+UKc1z3F4UuYJNMcnjIc1RkQLQ==", "email"=>"kyle@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "kyle@gmail.com"]]
+Redirected to http://localhost:3000/users/25
+Completed 302 Found in 64ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/25" for ::1 at 2016-10-25 10:11:09 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.5ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (4.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  Rendered shared/_pins_list.erb (21.3ms)
+  Rendered users/show.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 43ms (Views: 40.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/boards/38" for ::1 at 2016-10-25 10:11:17 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.5ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 38]]
+  [1m[35mPin Load (0.4ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 38]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (4.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (4.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.7ms)
+  Rendered shared/_pins_list.erb (36.6ms)
+  Rendered boards/show.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 76ms (Views: 64.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/boards/38/edit" for ::1 at 2016-10-25 10:11:20 -0400
+Processing by BoardsController#edit as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (1.3ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 38]]
+  [1m[35mFollower Load (0.6ms)[0m  SELECT "followers".* FROM "followers" WHERE "followers"."user_id" = $1  [["user_id", 25]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered boards/_form.html.erb (1.3ms)
+  Rendered boards/edit.html.erb within layouts/application (2.5ms)
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 35ms (Views: 26.0ms | ActiveRecord: 3.0ms)
+
+
+Started PATCH "/boards/38" for ::1 at 2016-10-25 10:11:29 -0400
+Processing by BoardsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2ckVwGDlktxwU2+TykW8JsgKunpsKoG0YE07E11nLyZsDYic6D9D0V3M9Cbg8iMvj/9cBwp9v4UN98cWhBM2ZA==", "board"=>{"user_id"=>"25", "board_pinners_attributes"=>{"0"=>{"user_id"=>"11"}}, "name"=>"kyle"}, "commit"=>"Update Board", "id"=>"38"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 38]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "board_pinners" ("user_id", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 11], ["board_id", 38], ["created_at", "2016-10-25 14:11:29.268297"], ["updated_at", "2016-10-25 14:11:29.268297"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/boards/38
+Completed 302 Found in 11ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/boards/38" for ::1 at 2016-10-25 10:11:29 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 25], ["id", 38]]
+  [1m[35mPin Load (0.4ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 38]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.3ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (5.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  Rendered shared/_pins_list.erb (31.0ms)
+  Rendered boards/show.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 59ms (Views: 53.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/boards/38/edit" for ::1 at 2016-10-25 10:11:40 -0400
+Processing by BoardsController#edit as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 38]]
+  [1m[35mFollower Load (0.4ms)[0m  SELECT "followers".* FROM "followers" WHERE "followers"."user_id" = $1  [["user_id", 25]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered boards/_form.html.erb (3.2ms)
+  Rendered boards/edit.html.erb within layouts/application (5.6ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 39ms (Views: 32.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/boards" for ::1 at 2016-10-25 10:11:44 -0400
+Processing by BoardsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoardPinner Load (0.4ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered boards/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 48ms (Views: 39.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/boards" for ::1 at 2016-10-25 10:11:53 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoardPinner Load (1.1ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.6ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered boards/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 35ms (Views: 27.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:12:10 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 25], ["id", 39]]
+  [1m[36mPin Load (0.8ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 39]]
+  [1m[35mCategory Load (0.6ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.6ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (7.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (3.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.7ms)
+  Rendered shared/_pins_list.erb (27.2ms)
+  Rendered boards/show.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 60ms (Views: 52.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/boards/39/edit" for ::1 at 2016-10-25 10:12:13 -0400
+Processing by BoardsController#edit as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 39]]
+  [1m[36mFollower Load (0.4ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE "followers"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered boards/_form.html.erb (5.3ms)
+  Rendered boards/edit.html.erb within layouts/application (8.8ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 41ms (Views: 34.4ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/boards/39" for ::1 at 2016-10-25 10:12:21 -0400
+Processing by BoardsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k7qxgIUtDSzG7t1WPR4zOt6m/GfYPcFZ0CIuXbTCPF0mfizcDffcIetxRuMXqawzmVMaGr5q/2i9mNJYbbYlHw==", "board"=>{"user_id"=>"25", "board_pinners_attributes"=>{"0"=>{"user_id"=>"11"}}, "name"=>"math"}, "commit"=>"Update Board", "id"=>"39"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 39]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "board_pinners" ("user_id", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 11], ["board_id", 39], ["created_at", "2016-10-25 14:12:21.902437"], ["updated_at", "2016-10-25 14:12:21.902437"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/boards/39
+Completed 302 Found in 11ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/boards/39" for ::1 at 2016-10-25 10:12:21 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.4ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 25], ["id", 39]]
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 39]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.3ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (8.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  Rendered shared/_pins_list.erb (21.6ms)
+  Rendered boards/show.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 50ms (Views: 42.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/boards" for ::1 at 2016-10-25 10:12:27 -0400
+Processing by BoardsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoardPinner Load (0.4ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered boards/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 43ms (Views: 35.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-10-25 10:12:43 -0400
+Processing by BoardsController#new as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered boards/_form.html.erb (2.7ms)
+  Rendered boards/new.html.erb within layouts/application (5.3ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/followers" for ::1 at 2016-10-25 10:12:48 -0400
+Processing by FollowersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFollower Load (0.4ms)[0m  [1mSELECT "followers".* FROM "followers" WHERE (follower_id=25)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 2]]
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 11]]
+  Rendered followers/index.html.erb within layouts/application (15.1ms)
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 48ms (Views: 40.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-10-25 10:13:03 -0400
+Processing by BoardsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered boards/_form.html.erb (2.1ms)
+  Rendered boards/new.html.erb within layouts/application (4.1ms)
+  [1m[35mBoard Load (0.9ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+Completed 200 OK in 45ms (Views: 39.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/25" for ::1 at 2016-10-25 10:13:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (1.6ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1  [["user_id", 25]]
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoardPinner Load (0.6ms)[0m  SELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1  [["user_id", 25]]
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+  Rendered shared/_repin_form.erb (6.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (2.5ms)
+  Rendered shared/_pins_list.erb (30.2ms)
+  Rendered users/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 60ms (Views: 52.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/followers" for ::1 at 2016-10-25 10:16:56 -0400
+Processing by FollowersController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFollower Load (0.8ms)[0m  SELECT "followers".* FROM "followers" WHERE (follower_id=25)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mBoard Load (1.8ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35mBoard Load (1.8ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+  Rendered followers/index.html.erb within layouts/application (8.3ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 25]]
+Completed 200 OK in 58ms (Views: 40.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/boards" for ::1 at 2016-10-25 10:17:10 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoardPinner Load (0.4ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mBoard Load (0.5ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 25]]
+  Rendered boards/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 57ms (Views: 45.8ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/logout/25" for ::1 at 2016-10-25 10:36:57 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"UnujU6FkhhsqhpluFj7kciIOZdm7nS7osuTDF5ynMJTnvz4PKb5XFgcZAts8iXt7ZfuDpN3KENnfXj8SRdMp1g==", "id"=>"25"}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-10-25 10:36:57 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 306ms (Views: 300.6ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/login" for ::1 at 2016-10-25 10:37:11 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6ACUjN1W4j7V5bUckxYuYZQpxmtRuLCsvuCC6AhHLnVdxAnQVYwzM/h6Lqm5obFo09wgFjfvjp3TWn7t0TM3Nw==", "email"=>"Natalie@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "Natalie@gmail.com"]]
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 84ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/11" for ::1 at 2016-10-25 10:37:11 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=11)  ORDER BY "users"."id" ASC LIMIT 1
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Pin> at /Users/Michelle/Desktop/ruby/rails-pinning-app/app/models/pin.rb:14)
+  [1m[36mPin Load (0.7ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 11]]
+  Rendered shared/_pins_list.erb (15.4ms)
+  Rendered users/show.html.erb within layouts/application (23.8ms)
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+Completed 200 OK in 124ms (Views: 87.7ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/" for ::1 at 2016-10-25 10:37:16 -0400
+Processing by PinsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=11)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.5ms)[0m  SELECT "pins".* FROM "pins"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBoard Load (0.7ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+  [1m[36mBoardPinner Load (0.4ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[35mBoard Load (0.7ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 38]]
+  [1m[36mBoard Load (1.4ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 39]]
+  Rendered shared/_repin_form.erb (5475705.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (6493.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (1852.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (1870.2ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (943.4ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (722.9ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (755.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (518.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (453.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (476.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2280.1ms)
+  Rendered shared/_pins_list.erb (5492140.1ms)
+  Rendered pins/index.erb within layouts/application (5492145.4ms)
+Completed 500 Internal Server Error in 5492161ms
+
+SystemExit (exit):
+  app/models/user.rb:46:in `pinnable_boards'
+  app/views/shared/_repin_form.erb:21:in `block (2 levels) in _app_views_shared__repin_form_erb__1030699769542738435_70315727145960'
+  app/views/shared/_repin_form.erb:17:in `block in _app_views_shared__repin_form_erb__1030699769542738435_70315727145960'
+  app/views/shared/_repin_form.erb:15:in `_app_views_shared__repin_form_erb__1030699769542738435_70315727145960'
+  app/views/shared/_pins_list.erb:26:in `block (2 levels) in _app_views_shared__pins_list_erb__2261918358030756526_70315683430740'
+  app/views/shared/_pins_list.erb:4:in `each'
+  app/views/shared/_pins_list.erb:4:in `block in _app_views_shared__pins_list_erb__2261918358030756526_70315683430740'
+  app/views/shared/_pins_list.erb:2:in `_app_views_shared__pins_list_erb__2261918358030756526_70315683430740'
+  app/views/pins/index.erb:6:in `_app_views_pins_index_erb___2469990585754433066_70315741173480'
+
+
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (266.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (63.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (391.4ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.3ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (191.6ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.6ms)
+  Rendered /Users/Michelle/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (270.8ms)
+
+
+Started GET "/" for ::1 at 2016-10-25 12:08:52 -0400
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (id=11)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (1.2ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  [1m[35mCategory Load (1.9ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBoardPinner Load (0.7ms)[0m  [1mSELECT "board_pinners".* FROM "board_pinners" WHERE "board_pinners"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 38]]
+  [1m[36mBoard Load (0.9ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 39]]
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 11]]
+  Rendered shared/_repin_form.erb (6012.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (1167.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (612.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (477.0ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (463.9ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (459.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (413.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (592.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered shared/_repin_form.erb (498.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_repin_form.erb (471.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
