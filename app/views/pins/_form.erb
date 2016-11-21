@@ -9,48 +9,47 @@
   </div>
 <% end %>
 
+
 <div class="form-group">
-  <%= form_for(@pin, multipart: true, :html => {:class => 'col-xlg-8 form-horizontal'}) do |f| %>
+
+  <%= form_for(@pin, multipart: true, :html => {:class => 'col-sm-12 form-horizontal'}) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-      <div class="row">
         <div class="form-group">
-          <label for="pin_title" class="control-label  col-sm-offset-2 col-sm-2">Title</label>
+          <label for="pin_title" class="control-label col-sm-2">Title</label>
             <%= f.text_field :title %>
         </div>
 
         <div class="form-group">
-          <label for="pin_category_id" class="control-label  col-sm-offset-2 col-sm-2">Category</label>
+          <label for="pin_category_id" class="control-label col-sm-2">Category</label>
             <%= f.collection_select(:category_id, Category.all, :id, :name) %>
         </div>
 
         <div class="form-group">
-          <label for="pin_image" class="control-label  col-sm-offset-2 col-sm-2">Image</label>
+          <label for="pin_image" class="control-label col-sm-2">Image</label>
             <%= f.file_field :image  %>
         </div>
 
         <div class="form-group">
-          <label for="pin_url" class="control-label  col-sm-offset-2 col-sm-2">Web Address</label>
+          <label for="pin_url" class="control-label col-sm-2">Web Address</label>
             <%= f.url_field(:url, options={}) %>
         </div>
-      </div>
+
 
         <div class="form-group">
-          <label for="pin_slug" class="control-label  col-sm-offset-2 col-sm-2">Web short text</label>
+          <label for="pin_slug" class="control-label col-sm-2">Web short text</label>
               <%= f.text_field :slug %>
         </div>
 
-      <div class="row">
-
         <div class="form-group">
-          <label for="pin_text" class="control-label  col-sm-offset-2 col-sm-2">Description</label>
+          <label for="pin_text" class="control-label col-sm-2">Description</label>
               <%= f.text_field :text %>
         </div>
 
 
-        <%= f.fields_for :pinning do |p| %>
+        <%= f.fields_for :pinnings do |p| %>
         <div class="form-group">
-            <label>Which board?</label>
+            <label>Select a Board?</label>
         </div>
         <div class="form-group">
             <%= p.collection_select(:board_id, current_user.pinnable_boards, :id, :name, {}, {class: "form-control"}) %>
@@ -58,7 +57,6 @@
             <%= p.hidden_field :user_id, value: current_user.id %>
               <% end %>
         </div>
-    </div>
 
         <%= f.submit :submit, class: "btn btn-default pinterest-theme-button" %>
 <% end %>

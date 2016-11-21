@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Current Followers</h1>
+<h1>Current Followers & Followed by</h1>
 <hr>
 <hr>
 <div class="table-responsive">
@@ -22,6 +22,31 @@
         <% end %>
         <td><%= link_to 'Destroy', follower, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-boardered ">
+  <thead>
+    <tr>
+      <th>Followed by</th>
+      <th>Boards</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if !@followed_by.nil? %>
+    <% @followed_by.each do |follower| %>
+      <tr>
+        <td><%= follower.fullname %></td>
+        <% follower.boards.each do |board| %>
+        <td><%= "#{board.name}/" %></td>
+        <% end %>
+        <td><%= link_to 'Destroy', follower, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

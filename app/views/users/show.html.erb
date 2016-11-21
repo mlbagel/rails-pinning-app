@@ -1,33 +1,11 @@
 <div class="header">
   <h1>Your Pins</h1>
-  <h3>A Collection of Pins and RePins</h3>
+  <h3>A Collection of Pins and RePins<span class='pull-right' style="font-size: 20px"><%= link_to 'Account', edit_user_path %></span></h3>
 </div>
-<hr/>
 <%= render partial: "shared/pins_list" %>
+<hr/>
+
 
 <hr/>
 
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', root_path %>

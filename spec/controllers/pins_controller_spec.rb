@@ -1,17 +1,19 @@
 require 'spec_helper'
-require 'byebug'
+
 RSpec.describe PinsController do
 
   before(:each) do
     @user = FactoryGirl.create(:user_with_boards)
-    @board = @user.boards.first
+
     login(@user)
+      @board = @user.boards.first
 
     @pin = FactoryGirl.create(:pin)
   end
 
 after(:each) do
   if !@user.destroyed?
+    @user.pinnings.destroy_all
     @user.boards.destroy_all
     @user.destroy
   end
@@ -64,7 +66,8 @@ end
           url: "http://railswizard.org",
           slug: "rails-wizard",
           text: "A fun and helpful Rails Resource",
-          category_id: "rails"}
+          category_id: "rails",
+          pinning: {board_id: @board[:id], user_id: @user[:id]}}
       end
 
       after(:each) do
@@ -144,28 +147,28 @@ end
     end
 
     describe "PUT Update" do
-    require 'byebug'
-
-
-      #with valid parameters
+    #with valid parameters
       before(:each) do
-        @user = FactoryGirl.create(:user_with_boards)
-        @board = @user.boards.first
-        login(@user)
+        #@user = FactoryGirl.create(:user_with_boards)
+        #  login(@user)
+        #  @board = @user.boards.first
+        #  @pin = @board.pins.first
 
         @pin_hash = {
           title: "Ruby Quiz",
           url: "http://rubyquiz.org",
           slug: "ruby-quiz",
           text: "A 22222 collection of 10 quizzes on the Ruby programming language.",
-          category_id: "1",
-           pinning: { board_id: @board.id, user_id: @user.id }
+          category_id: "ruby",
+          pinning: {board_id: @board[:id], user_id: @user[:id]}
          }
+
       end
 
       it 'responds with success' do
         put :update, id: @pin.id, pin: @pin_hash
         expect(response).to redirect_to("/pins/#{@pin.id}")
+        #expect(response.redirect?).to be(true)
       end
       it 'upates a pin' do
         put :update, id: @pin.id, pin: @pin_hash

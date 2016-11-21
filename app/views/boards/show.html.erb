@@ -10,8 +10,10 @@
 
 <hr/>
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
-<hr>
+<% if @board.user == current_user %>
+  <%= link_to 'Edit', edit_board_path(@board) %> |
+  <%= link_to 'Back', boards_path %>
+<% else %>
+  <%= link_to 'Back', boards_path %>
+<% end %>
 <hr>

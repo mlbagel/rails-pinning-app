@@ -14,8 +14,9 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <% if !@followers.nil? %>
+  <h3><%= "Add followers to have access to this board" %></h3>
   <div class="form-group">
-    <%= select_tag "board[board_pinners_attributes][0][user_id]", options_from_collection_for_select(@followers, :id, :fullname), class: "form-control", include_blank: true %>
+    <%= select_tag "board[board_pinners_attributes][0][user_id]", options_from_collection_for_select(@followers, :id, :fullname), class: "form-control", include_blank: false %>
   </div>
   <% end %>
 

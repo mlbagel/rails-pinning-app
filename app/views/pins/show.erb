@@ -1,42 +1,52 @@
 
-  <hr/>
+<div>
   <h1>
     <% if !@board.nil? %>
-  <%= "#{@board.board.name}" %>
-  <% end %>
-</h1>
-<hr/>
+      <%= "#{@board.name}" %>
+    <% end %>
+  </h1>
+  <hr/>
   <h1>
-    <i class="fa fa-laptop"></i>
+    <i class="fa fa-thumb-tack" aria-hidden="true"></i>
     <span style="font-variant: small-caps"><%= "#{@pin.title}" %></span>
   </h1>
 </div>
 
-<div class="show-pin">
-  <% if @pin %>
-    <img src="<%= @pin.image.url(:medium) %>">
-  <% end %>
+<hr>
 
-  <p class="header"><%= "#{@pin.text}" %></p>
+<div class="show-pin ">
+  <div class="pin-image">
+    <% if @pin %>
+      <img class="col-sm-3" src="<%= @pin.image.url(:medium) %>">
+    <% end %>
 
-  <hr/>
-  <p>
+    <section class="col-sm-9">
+      <p class="header">
+        <%= "#{@pin.text}" %>
+      </p>
+      <hr>
+      <p>
+        <b>Visit <%= "#{@pin.title}" %> at: </b>
 
-    <b>Visit <%= "#{@pin.title}" %> at: </b>
-
-    <%= link_to "#{@pin.url}", "#{@pin.url}",html_options={target: "_blank"} %>
-  </p>
+        <%= link_to "#{@pin.url}", "#{@pin.url}",html_options={target: "_blank"} %>
+      </p>
+      <br>
+    </section>
   </div>
-  <div class="repin">
-  <%= render partial: "shared/repin_form" , locals: {pin: @pin} %>
-  </div>
-  <div>
-  <p>
-  <%= "This pin has been pinned by..." %>
-  <br>
 
-  <%  @users.each  do |user| %>
-  <%= "#{user.first_name} #{user.last_name} /" %>
-  <% end %>
-  </p>
+    <hr>
+    <div class="repin">
+      <%= "This pin has been pinned by..." %>
+      <br>
+      <%  @users.each  do |user| %>
+        <%= "#{user.first_name} #{user.last_name} /" %>
+      <% end %>
+      <hr>
+      <%= render partial: "shared/repin_form" , locals: {pin: @pin} %>
+    </div>
+    <div>
+      <hr/>
+      <%= link_to "edit", edit_pin_path(id: @pin.id) %>
+      <br>
+    </div>
 </div>

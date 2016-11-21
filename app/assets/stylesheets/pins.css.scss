@@ -11,6 +11,7 @@ h1 {
 }
 .pin-container{
   padding: 10px;
+  overflow-wrap:break-word;
 }
 .pin {
   padding: 40px;
@@ -34,4 +35,8 @@ p.header {
 
 .error {
   color: green;
+}
+
+.pin-image {
+  padding-bottom: 200px;
 }

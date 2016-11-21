@@ -1,25 +1,28 @@
-
-require 'byebug'
 class BoardsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
  #before_action :set_board, only: [:show, :edit, :update, :destroy]
 
   # GET /boards
   # GET /boards.json
+
   def index
+
     @boards = current_user.pinnable_boards
+
   end
 
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @board = current_user.boards.find(params[:id])
+  @board = Board.find(params[:id])
+    #@board = current_user.boards.find(params[:id])
     @pins = @board.pins
   end
 
   # GET /boards/new
   def new
     @board = Board.new
+    #@board = current_user.boards.new
   end
 
 
@@ -42,7 +45,6 @@ class BoardsController < ApplicationController
 
     # GET /boards/1/edit
     def edit
-
       @board = Board.find(params[:id])
       @followers = current_user.user_followers
       #@followers = current_user.board_pinners
@@ -65,7 +67,9 @@ class BoardsController < ApplicationController
 
   # DELETE /boards/1
   # DELETE /boards/1.json
+
   def destroy
+    @board = Board.find(params[:id])
     @board.destroy
     respond_to do |format|
       format.html { redirect_to boards_url, notice: 'Board was successfully destroyed.' }

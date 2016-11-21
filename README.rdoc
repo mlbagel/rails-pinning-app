@@ -1,14 +1,9 @@
 == README
 
-<a href="<%= pin_by_name_path(slug: pin.slug) %>">
-  <%= "#{pin.title}" %>
-</a>
-<a class="url" href="<%= "#{pin.url}" %>">
-  <%= "#{pin.url}" %>
-</a>
-<a class="url" href="<%= "#{@pin.url}" %>" target="_blank">
-  <%= "#{@pin.url}" %>
-</a>
+This is a program that will be run as a heroku app.
+You can find this at:
+https://applice.herokuapp.com/
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

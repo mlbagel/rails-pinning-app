@@ -16,8 +16,8 @@
 
 <%= f.fields_for :pinning do |p| %>
       <div class="form-group">
-        <div class=" col-xlg-8">
-          <label>Which board?</label>
+        <div class=" col-sm-8">
+          <label>Select a Board</label>
           <%= p.collection_select(:board_id, current_user.pinnable_boards, :id, :name, {}, {class: "form-control"}) %>
         </div>
           <%= p.hidden_field :user_id, value: current_user.id %>
@@ -25,9 +25,9 @@
             <% end %>
         </div>
 
-      <div class="col-xlg-12">
+      <div class="col-sm-8">
         <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
-        <i class="fa-fa-diamond"></i>
+        <i class="fa fa-diamond"></i>
         Repin!
         <% end %>
         </div>

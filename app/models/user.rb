@@ -5,10 +5,10 @@ has_secure_password
   validates_presence_of :first_name, :last_name, :email, :password
   validates_uniqueness_of :email
 
-  has_many :pinnings, dependent: :destroy
+  has_many :pinnings, inverse_of: :user, dependent: :destroy
   has_many :pins, through: :pinnings
   has_many :boards
-  has_many :board_pinners
+  has_many :board_pinners, inverse_of: :user, dependent: :destroy
   has_many :followers,
    dependent: :destroy
 

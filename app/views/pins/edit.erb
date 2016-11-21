@@ -1,3 +1,8 @@
-
+<div class="header">
+  <h1>Pin Edit</h1>
+  <h3>Update your pin</h3>
+</div>
 
 <%= render "form" %>
+<hr>
+<%= link_to 'Back', pin_by_name_path(@pin.slug) %>
