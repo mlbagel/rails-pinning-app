@@ -2,8 +2,8 @@
   <% @pins.each_slice(3) do |row| %>
     <div class="row">
       <% row.each do |pin| %>
-        <div class="pin-container col-md-4 text-overflow">
-          <div class="pin">
+        <div class="pin-container col-md-4 ">
+          <div class="pin col-xs-12">
             <div class="pin-header row">
               <div class="logo-thumbnail col-xs-3">
                 <% if pin.category.name == "rails" %>
@@ -21,14 +21,12 @@
                 <%= link_to "#{pin.url}", "#{pin.url}", html_options= {target: "_blank",style: 'text-overflow: ellipsis;'} %>
               </div>
             </div>
-            <div class="col-xs-12">
+            <hr>
+            <%= "#{pin.text}" %>
+            <div class="row bottom-align">
 
-            </div>
-            <hr>
-            <p class="text"><%= "#{pin.text}" %></p>
-            <hr>
             <%= render partial: "shared/repin_form", locals: {pin: pin} %>
-
+          </div>
           </div>
         </div>
       <% end %>

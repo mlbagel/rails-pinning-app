@@ -11,13 +11,17 @@ h1 {
 }
 .pin-container{
   padding: 10px;
-  overflow-wrap:break-word;
+  overflow: auto;
+  overflow-wrap: break-word;
+
+
 }
 .pin {
   padding: 40px;
   min-height: 343px;
   background-color: #fff;
   border: 1px solid #efefef;
+
 }
 .show-pin{
   background-color: #fff;
