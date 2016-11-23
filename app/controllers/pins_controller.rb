@@ -1,4 +1,3 @@
-require 'byebug'
 class PinsController < ApplicationController
 
   before_action :require_login, except: [:show, :show_by_name]
@@ -66,8 +65,7 @@ class PinsController < ApplicationController
      #Pin.update returns the resulting object whether it was saved successfully to the database or not. Therefore, Pin.update(@pin.id, pin_params) does not update the @pin variable if you do not make the assignment; @pin=Pin.update(.....).
      # @pin.update_attributes(pin_params) does change the @pin variable implicitly.
      #The solution for this to work with the update method is to do @pin = Pin.update(@pin.id, pin_params)
-#require 'byebug'
-#debugger
+
     if @pin.update_attributes(pin_params)
         redirect_to pin_path(@pin)
     else
@@ -87,6 +85,5 @@ class PinsController < ApplicationController
 
   def pin_params
     params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image, :user_id, pinnings_attributes: [:user_id, :id, :board_id])
-    #params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image, :user_id)
   end
 end
