@@ -15,6 +15,7 @@ after(:each) do
   if !@user.destroyed?
     @user.pinnings.destroy_all
     @user.boards.destroy_all
+    @user.pins.destroy_all
     @user.destroy
   end
 end
@@ -118,9 +119,6 @@ end
     end
 
     describe "GET edit" do
-      #before(:each) do
-      #  @pin = Pin.find(3)
-      #end
 
       it 'responds with successfully' do
         get :edit, id: @pin.id
@@ -149,15 +147,11 @@ end
     describe "PUT Update" do
     #with valid parameters
       before(:each) do
-        #@user = FactoryGirl.create(:user_with_boards)
-        #  login(@user)
-        #  @board = @user.boards.first
-        #  @pin = @board.pins.first
 
         @pin_hash = {
           title: "Ruby Quiz",
           url: "http://rubyquiz.org",
-          slug: "ruby-quiz",
+          slug: "something-else",
           text: "A 22222 collection of 10 quizzes on the Ruby programming language.",
           category_id: "ruby",
           pinning: {board_id: @board[:id], user_id: @user[:id]}
@@ -189,7 +183,6 @@ end
       #with invalid parameters
 
       before(:each) do
-      #  @pin = Pin.find(4)
         @pin_hash = {
           title: "",
           url: "http://rubyquiz.org",

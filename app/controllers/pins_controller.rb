@@ -12,8 +12,7 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     @users = @pin.users
     @pins = current_user.pins
-
-@board = Board.find(params[:id])
+    @board = Board.find(params[:id])
   end
 
   def show_by_name
