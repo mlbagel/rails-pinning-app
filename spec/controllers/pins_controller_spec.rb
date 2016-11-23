@@ -4,14 +4,15 @@ RSpec.describe PinsController do
 
   before(:each) do
     @user = FactoryGirl.create(:user_with_boards)
-
     login(@user)
-      @board = @user.boards.first
-
+    @board = @user.boards.first
+    @board_pinner = BoardPinner.create(user: @user, board: FactoryGirl.create(:board))
     @pin = FactoryGirl.create(:pin)
   end
 
 after(:each) do
+  @pin.destroy
+
   if !@user.destroyed?
     @user.pinnings.destroy_all
     @user.boards.destroy_all
@@ -57,6 +58,10 @@ end
          logout(@user)
          get :new
          expect(response).to redirect_to(:login)
+       end
+       it 'assigns @pinnable_boards to all pinnable boards' do
+         get :new
+         expect(assigns(:boards)).to eq(@user.pinnable_boards)
        end
     end
 
@@ -116,6 +121,24 @@ end
          expect(response).to redirect_to(:login)
        end
 
+       it 'pins to a board for which the user is a board_pinner' do
+          @pin_hash[:pinnings_attributes] = []
+
+          board = @board_pinner.board
+
+          @pin_hash[:pinnings_attributes] << {board_id: board.id, user_id: @user.id}
+
+          post :create, pin: @pin_hash
+
+          pinning = Pinning.where("user_id=? AND board_id=?", @user.id, board.id)
+
+         expect(pinning.present?).to be(true)
+
+          if pinning.present?
+            pinning.destroy_all
+          end
+        end
+
     end
 
     describe "GET edit" do
@@ -166,7 +189,7 @@ end
       end
       it 'upates a pin' do
         put :update, id: @pin.id, pin: @pin_hash
-        expect(Pin.find(@pin.id).slug).to eq(@pin[:slug])
+        expect(Pin.find(@pin.id).slug).to eq(@pin_hash[:slug])
       end
       it 'redirects to the show view' do
         put :update, id: @pin.id, pin: @pin_hash
@@ -243,6 +266,26 @@ end
       it 'redirects to the user show page' do
         post :repin, id: @pin.id, pin: { pinning: { board_id: @board.id, user_id: @user.id } }
         expect(response).to redirect_to(user_path(@user))
+      end
+
+      it 'creates a pinning to a board on which the user is a board_pinner' do
+        @pin_hash = {
+          title: @pin.title,
+          url: @pin.url,
+          slug: @pin.slug,
+          text: @pin.text,
+          category_id: @pin.category_id
+        }
+        board = @board_pinner.board
+        @pin_hash[:pinning] = {user_id: @user.id, board_id: board.id}
+        post :repin, id: @pin.id, pin: @pin_hash
+        pinning = Pinning.where("user_id=? AND board_id=?", @user.id, board.id)
+
+        expect(pinning.present?).to be(true)
+
+        if pinning.present?
+          pinning.destroy_all
+        end
       end
 
     end

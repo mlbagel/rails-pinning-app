@@ -66,8 +66,8 @@ class PinsController < ApplicationController
      #Pin.update returns the resulting object whether it was saved successfully to the database or not. Therefore, Pin.update(@pin.id, pin_params) does not update the @pin variable if you do not make the assignment; @pin=Pin.update(.....).
      # @pin.update_attributes(pin_params) does change the @pin variable implicitly.
      #The solution for this to work with the update method is to do @pin = Pin.update(@pin.id, pin_params)
-require 'byebug'
-debugger
+#require 'byebug'
+#debugger
     if @pin.update_attributes(pin_params)
         redirect_to pin_path(@pin)
     else
